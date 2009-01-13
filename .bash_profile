@@ -7,7 +7,8 @@ export LSCOLORS=gxgxcxdxbxegedabagacad  # cyan directories
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
 
 # common ENV
-export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin::/usr/local/sbin:/opt/local/bin:/usr/local/mysql/bin:$PATH"
+export MACPORTS=/opt/local/bin:/opt/local/sbin
+export PATH="$MACPORTS/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 export SVN_EDITOR='mate -w'
 export EDITOR='mate -w'
 export LC_CTYPE=en_US.UTF-8
