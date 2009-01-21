@@ -45,6 +45,7 @@ alias r='ruby'
 # rails
 alias sc='./script/console'
 alias ss='./script/server'
+alias rt='rake test'
 
 # work
 source "$HOME/.skyblue_profile"
