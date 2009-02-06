@@ -47,5 +47,10 @@ alias sc='./script/console'
 alias ss='./script/server'
 alias rt='rake test'
 
+# perforce
+alias p4d='p4 diff -duw'
+alias p4dm="p4d | mate"
+alias p4s="p4 sync"
+
 # work
 source "$HOME/.skyblue_profile"
