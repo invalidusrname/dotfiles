@@ -39,6 +39,8 @@ alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gd='git diff | mate'
 alias gst='git status'
+alias g4r='git-p4 rebase'
+alias g4s='git-p4 submit'
 
 # mysql
 alias mysql='mysql5'
