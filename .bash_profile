@@ -29,6 +29,17 @@ export IRCSERVER="irc.freenode.net"
 
 ## DEVELOPMENT
 
+# git
+alias gl='git pull'
+alias glog='git log --stat -u --color'
+alias gp='git push'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gd='git diff | mate'
+alias gst='git status'
+
 # mysql
 alias mysql='mysql5'
 alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
