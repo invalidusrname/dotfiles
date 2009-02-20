@@ -58,6 +58,7 @@ alias r='ruby'
 # rails
 alias sc='./script/console'
 alias ss='./script/server'
+alias restart_rails='touch tmp/restart.txt'
 alias rt='rake test'
 
 # perforce
