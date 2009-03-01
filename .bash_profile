@@ -42,6 +42,13 @@ alias gst='git status'
 alias g4r='git-p4 rebase'
 alias g4s='git-p4 submit'
 
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    echo "("${ref#refs/heads/}")" 
+}
+
+PS1="\w \$(parse_git_branch)\$ "
+
 # mysql
 alias mysql='mysql5'
 alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
@@ -68,3 +75,4 @@ alias p4s="p4 sync"
 
 # work
 source "$HOME/.skyblue_profile"
+
