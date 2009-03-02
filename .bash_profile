@@ -29,6 +29,7 @@ export IRCSERVER="irc.freenode.net"
 ## DEVELOPMENT
 
 # git
+source ~/.git-completion.sh
 alias gl='git pull'
 alias glog='git log --stat -u --color'
 alias gp='git push'
@@ -42,8 +43,18 @@ alias g4r='git-p4 rebase'
 alias g4s='git-p4 submit'
 
 function parse_git_branch {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    echo "("${ref#refs/heads/}")" 
+  branch_prompt=$(__git_ps1)
+  if [ -n "$branch_prompt" ]; then
+    status_icon=$(git_status)
+    echo "$branch_prompt$status_icon "
+  fi
+}
+
+# Show character if changes are pending
+function git_status() {
+  if current_git_status=$(git status | grep 'added to commit' 2> /dev/null); then
+    echo ' +'
+  fi
 }
 
 PS1="$PS1\$(parse_git_branch)\$ "
