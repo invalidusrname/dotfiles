@@ -2,7 +2,7 @@
 export TERM=xterm-color
 export CLICOLOR=1
 export LSCOLORS=gxgxcxdxbxegedabagacad  # cyan directories
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\] '
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]'
 PS2="> "
 
 # common ENV
