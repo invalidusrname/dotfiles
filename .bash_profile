@@ -1,10 +1,9 @@
 # make terminal pretty
-PS1="\h:\w \u$ "
-PS2="> "
 export TERM=xterm-color
 export CLICOLOR=1
 export LSCOLORS=gxgxcxdxbxegedabagacad  # cyan directories
-export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\] '
+PS2="> "
 
 # common ENV
 export MACPORTS=/opt/local/bin:/opt/local/sbin
@@ -47,7 +46,7 @@ function parse_git_branch {
     echo "("${ref#refs/heads/}")" 
 }
 
-PS1="\w \$(parse_git_branch)\$ "
+PS1="$PS1\$(parse_git_branch)\$ "
 
 # mysql
 alias mysql='mysql5'
