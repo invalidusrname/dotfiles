@@ -77,6 +77,20 @@ alias sc='./script/console'
 alias ss='./script/server'
 alias restart_rails='touch tmp/restart.txt'
 alias rt='rake test'
+alias tl="tail -f log/development.log"
+
+# cucumber
+alias rf='rake features'
+
+# For running specific features.
+function rff {
+ rake features FEATURE=features/"$1".feature
+}
+
+# For running specific line numbers
+function rffl {
+ cucumber features/"$1".feature:"$2"
+}
 
 # perforce
 alias p4d='p4 diff -duw'
