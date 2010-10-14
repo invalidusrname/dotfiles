@@ -1,0 +1,20 @@
+# common ENV
+export MACPORTS=/opt/local/bin:/opt/local/sbin
+export PATH="$MACPORTS/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+export SVN_EDITOR='mate -w'
+export EDITOR='mate -w'
+export LC_CTYPE=en_US.UTF-8
+export VIM_APP_DIR='/Applications'
+
+# aliases
+alias dp="cd ~/Desktop"
+
+# textmate
+alias e='mate'
+alias ubundles="AA=$(pwd); cd /Library/Application\ Support/TextMate; svn up; cd $AA;"
+
+# mysql
+alias mysql='mysql5'
+alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
+alias mysqlstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
+

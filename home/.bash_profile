@@ -5,19 +5,11 @@ export LSCOLORS=gxgxcxdxbxegedabagacad  # cyan directories
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]'
 PS2="> "
 
-# common ENV
-export MACPORTS=/opt/local/bin:/opt/local/sbin
-export PATH="$MACPORTS/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
-export SVN_EDITOR='mate -w'
-export EDITOR='mate -w'
-export LC_CTYPE=en_US.UTF-8
-
 # common aliases
 alias vi='vim'
 alias c='clear'
 alias l="ls -CaGpltr"
 alias ls="ls -Gl"
-alias dp="cd ~/Desktop"
 alias lusers="netstat -na | grep 548"
 alias myip='curl http://remoteip.f-trans.net'
 
@@ -27,6 +19,11 @@ export IRCNAME="invalidusrname"
 export IRCSERVER="irc.freenode.net"
 
 ## DEVELOPMENT
+
+# add key to remote server
+function authme {
+  ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_dsa.pub
+}
 
 # git
 source ~/.git-completion.sh
@@ -59,14 +56,6 @@ function git_status() {
 
 PS1="$PS1\$(parse_git_branch)\$ "
 
-# mysql
-alias mysql='mysql5'
-alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
-alias mysqlstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
-
-# textmate
-alias e='mate'
-alias ubundles="AA=$(pwd); cd /Library/Application\ Support/TextMate; svn up; cd $AA;"
 
 # ruby
 export RI="--format ansi -T --width 70"
@@ -97,6 +86,14 @@ alias p4d='p4 diff -duw'
 alias p4dm="p4d | mate"
 alias p4s="p4 sync"
 
-# work
-source "$HOME/.skyblue_profile"
+# OSX specific
+if [[ `uname` == 'Darwin' && -f $HOME/.osx_profile ]]; then
+  source "$HOME/.osx_profile"
+fi
 
+# JS
+export PATH="$HOME/narwhal/bin:$PATH"
+export NARWHAL_ENGINE=jsc
+
+#rvm
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
