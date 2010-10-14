@@ -19,6 +19,8 @@ export IRCNAME="invalidusrname"
 export IRCSERVER="irc.freenode.net"
 
 ## DEVELOPMENT
+export SVN_EDITOR='vim'
+export EDITOR='vim'
 
 # add key to remote server
 function authme {
