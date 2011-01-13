@@ -97,5 +97,4 @@ fi
 export PATH="$HOME/narwhal/bin:$PATH"
 export NARWHAL_ENGINE=jsc
 
-#rvm
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
