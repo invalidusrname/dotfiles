@@ -22,7 +22,9 @@ export IRCSERVER="irc.freenode.net"
 
 # tmux
 
-alias t='tmux -u'
+alias t='tmux -u -2'
+export TERM=xterm-256color
+
 
 export SVN_EDITOR='vim'
 export EDITOR='vim'

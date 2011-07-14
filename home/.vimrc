@@ -121,7 +121,7 @@ set winheight=999
 
 " colorscheme
 let g:solarized_termcolors=256
-set t_Co=16
+set t_Co=256
 set background=dark
 colorscheme solarized
 
