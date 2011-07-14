@@ -1,5 +1,5 @@
 # make terminal pretty
-export TERM=xterm-color
+export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=gxgxcxdxbxegedabagacad  # cyan directories
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]'
@@ -20,10 +20,9 @@ export IRCSERVER="irc.freenode.net"
 
 ## DEVELOPMENT
 
-# tmux
 
+# tmux
 alias t='tmux -u -2'
-export TERM=xterm-256color
 
 
 export SVN_EDITOR='vim'
