@@ -1,8 +1,8 @@
 # common ENV
 export MACPORTS=/opt/local/bin:/opt/local/sbin
-export PATH="$MACPORTS/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:$PATH"
-export SVN_EDITOR='mate -w'
-export EDITOR='mate -w'
+#export PATH="$MACPORTS/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:$PATH"
+#export SVN_EDITOR='mate -w'
+#export EDITOR='mate -w'
 export LC_CTYPE=en_US.UTF-8
 export VIM_APP_DIR='/Applications'
 

@@ -19,6 +19,11 @@ export IRCNAME="invalidusrname"
 export IRCSERVER="irc.freenode.net"
 
 ## DEVELOPMENT
+
+# tmux
+
+alias t='tmux -u'
+
 export SVN_EDITOR='vim'
 export EDITOR='vim'
 
@@ -36,7 +41,7 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
-alias gd='git diff | mate'
+alias gd='git diff --color'
 alias gst='git status'
 alias g4r='git-p4 rebase'
 alias g4s='git-p4 submit'
@@ -70,6 +75,14 @@ alias restart_rails='touch tmp/restart.txt'
 alias rt='rake test'
 alias tl="tail -f log/development.log"
 
+# bundler
+alias b="bundle"
+alias bi="b install --path vendor"
+alias bil="bi --local"
+alias bu="b update"
+alias be="b exec"
+alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
+
 # cucumber
 alias rf='rake features'
 
@@ -85,7 +98,7 @@ function rffl {
 
 # perforce
 alias p4d='p4 diff -duw'
-alias p4dm="p4d | mate"
+alias p4dm="p4d | $EDITOR"
 alias p4s="p4 sync"
 
 # OSX specific
@@ -96,5 +109,9 @@ fi
 # JS
 export PATH="$HOME/narwhal/bin:$PATH"
 export NARWHAL_ENGINE=jsc
+
+export PATH="./bin:$PATH"
+
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
