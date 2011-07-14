@@ -120,7 +120,9 @@ set winheight=999
 
 
 " colorscheme
-let g:solarized_termcolors=256
+" only use g command when not using the custom terminal colors suggested by
+" solarize
+"let g:solarized_termcolors=256
 set t_Co=256
 set background=dark
 colorscheme solarized
