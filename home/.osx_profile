@@ -10,7 +10,7 @@ export VIM_APP_DIR='/Applications'
 alias dp="cd ~/Desktop"
 
 # textmate
-alias e='mate'
+alias e="echo 'STOP USING THIS KEY DUMBASS'"
 alias ubundles="AA=$(pwd); cd /Library/Application\ Support/TextMate; svn up; cd $AA;"
 
 # mysql
