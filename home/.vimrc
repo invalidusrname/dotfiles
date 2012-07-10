@@ -13,6 +13,13 @@ filetype plugin indent on
 
 set visualbell
 
+set cursorline
+set showtabline=2
+set cmdheight=2
+
+"set numberwidth=5
+"set showtabline=2
+
 let c_space_errors = 1
 let java_space_errors = 1
 let ruby_space_errors = 1
@@ -24,6 +31,13 @@ set directory=~/.vim/tmp     " Where temporary files will go.
 
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
+
+set shell=bash
+
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+set scrolloff=3
 
 let mapleader = ","
 
@@ -67,11 +81,30 @@ endfunction
 map <leader>gR :call ShowRoutes()<cr>
 
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RUNNING TESTS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RunTests(filename)
     " Write the file and run tests for the given filename
     :w
-    :silent !echo;echo;echo;echo;echo
-    exec ":!bundle exec rspec " . a:filename
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    if match(a:filename, '\.feature$') != -1
+        exec ":!script/cucumber " . a:filename
+    else
+        if filereadable("script/test")
+            exec ":!script/test " . a:filename
+        elseif filereadable("Gemfile")
+            exec ":!bundle exec rspec --color " . a:filename
+        else
+            exec ":!rspec --color " . a:filename
+        end
+    end
 endfunction
 
 function! SetTestFile()
@@ -87,8 +120,8 @@ function! RunTestFile(...)
     endif
 
     " Run the tests for the previously-marked file.
-    let in_spec_file = match(expand("%"), '_spec.rb$') != -1
-    if in_spec_file
+    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+    if in_test_file
         call SetTestFile()
     elseif !exists("t:grb_test_file")
         return
@@ -98,16 +131,14 @@ endfunction
 
 function! RunNearestTest()
     let spec_line_number = line('.')
-    call RunTestFile(":" . spec_line_number)
+    call RunTestFile(":" . spec_line_number . " -b")
 endfunction
 
-" Run this file
 map <leader>t :call RunTestFile()<cr>
-" Run only the example under the cursor
 map <leader>T :call RunNearestTest()<cr>
-" Run all test files
-map <leader>a :call RunTests('spec')<cr>
-
+map <leader>a :call RunTests('')<cr>
+map <leader>c :w\|:!script/cucumber features<cr>
+map <leader>w :w\|:!script/cucumber features --profile wip<cr>
 
 " Make the current window big, but leave others context
 set winwidth=84
@@ -124,9 +155,19 @@ set winheight=999
 " solarize
 "let g:solarized_termcolors=256
 set t_Co=256
-set background=dark
+set background=light
 colorscheme solarized
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" STATUS LINE
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
+set laststatus=2
+
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
