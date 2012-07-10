@@ -5,6 +5,8 @@ export LSCOLORS=gxgxcxdxbxegedabagacad  # cyan directories
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]'
 PS2="> "
 
+# find * -type f -exec sed 's/[ \t]*$//' -i {} \;)
+
 # common aliases
 alias vi='vim'
 alias c='clear'
@@ -20,7 +22,6 @@ export IRCSERVER="irc.freenode.net"
 
 ## DEVELOPMENT
 
-
 # tmux
 alias t='tmux -u -2'
 
@@ -30,7 +31,7 @@ export EDITOR='vim'
 
 # add key to remote server
 function authme {
-  ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_dsa.pub
+  ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_rsa.pub
 }
 
 # git
@@ -71,7 +72,7 @@ alias r='ruby'
 
 # rails
 alias sc='./script/console'
-alias ss='./script/server'
+alias ss='./script/rails server'
 alias restart_rails='touch tmp/restart.txt'
 alias rt='rake test'
 alias tl="tail -f log/development.log"
@@ -107,11 +108,16 @@ if [[ `uname` == 'Darwin' && -f $HOME/.osx_profile ]]; then
   source "$HOME/.osx_profile"
 fi
 
+if [[ -f $HOME/.private_vars ]]; then
+  source "$HOME/.private_vars"
+fi
+
+
 # JS
 export PATH="$HOME/narwhal/bin:$PATH"
 export NARWHAL_ENGINE=jsc
 
-export PATH="./bin:$PATH"
+export PATH="./bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
