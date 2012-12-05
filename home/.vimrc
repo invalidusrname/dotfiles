@@ -155,7 +155,7 @@ set winheight=999
 " solarize
 "let g:solarized_termcolors=256
 set t_Co=256
-set background=light
+set background=dark
 colorscheme solarized
 
 " Switch between the last two files
