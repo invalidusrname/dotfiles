@@ -150,14 +150,6 @@ set winminheight=5
 set winheight=999
 
 
-" colorscheme
-" only use g command when not using the custom terminal colors suggested by
-" solarize
-"let g:solarized_termcolors=256
-set t_Co=256
-set background=dark
-colorscheme solarized
-
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
@@ -171,3 +163,11 @@ set laststatus=2
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
+
+" colorscheme
+" only use g command when not using the custom terminal colors suggested by
+" solarize
+"let g:solarized_termcolors=256
+set t_Co=256
+set background=dark
+colorscheme solarized
