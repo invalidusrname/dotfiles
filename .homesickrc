@@ -1,0 +1,18 @@
+puts "making vim dirs"
+
+`mkdir -p #{ENV['HOME']}/.vim/{backups,tmp,colors,autoload,bundle}`
+
+puts "checking for solarized"
+unless File.exists? "#{ENV['HOME']}/.vim/colors/solarized.vim"
+  puts "installing solarized"
+  `git clone git@github.com:altercation/solarized.git #{ENV['HOME']}/solarized`
+  `cp #{ENV['HOME']}/solarized/vim-colors-solarized/colors/solarized.vim #{ENV['HOME']}/.vim/colors`
+end
+
+puts "checking for pathogen"
+unless File.exists? "#{ENV['HOME']}/.vim/autoload/pathogen.vim"
+  puts "installing pathogen"
+  url = "https://tpo.pe/pathogen.vim"
+  `curl -Sso #{ENV['HOME']}/.vim/autoload/pathogen.vim #{url}`
+end
+
