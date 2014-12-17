@@ -47,3 +47,8 @@ alias rf='rake features'
 alias p4d='p4 diff -duw'
 alias p4dm="p4d | $EDITOR"
 alias p4s="p4 sync"
+
+alias b4="cd ~/dev/work/b4/devbox"
+alias cx="cd ~/dev/work/connexio/devbox"
+alias vssh="cx; vagrant ssh"
+alias tk="cd ~/dev/work/technekes/devbox"
