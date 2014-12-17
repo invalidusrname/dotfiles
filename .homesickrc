@@ -13,6 +13,6 @@ puts "checking for pathogen"
 unless File.exists? "#{ENV['HOME']}/.vim/autoload/pathogen.vim"
   puts "installing pathogen"
   url = "https://tpo.pe/pathogen.vim"
-  `curl -Sso #{ENV['HOME']}/.vim/autoload/pathogen.vim #{url}`
+  `curl -LSso #{ENV['HOME']}/.vim/autoload/pathogen.vim #{url}`
 end
 
