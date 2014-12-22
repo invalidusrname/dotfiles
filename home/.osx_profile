@@ -1,8 +1,5 @@
 # common ENV
-export MACPORTS=/opt/local/bin:/opt/local/sbin
-#export PATH="$MACPORTS/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:$PATH"
-#export SVN_EDITOR='mate -w'
-#export EDITOR='mate -w'
+export EDITOR=vim
 export LC_CTYPE=en_US.UTF-8
 export VIM_APP_DIR='/Applications'
 
@@ -17,4 +14,5 @@ alias ubundles="AA=$(pwd); cd /Library/Application\ Support/TextMate; svn up; cd
 alias mysqlstart='sudo //usr/local/bin/mysqld_safe &'
 alias mysqlstop='//usr/local/bin/mysqladmin -u root -p shutdown'
 
+### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

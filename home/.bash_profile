@@ -28,6 +28,3 @@ export PATH="./bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 eval "$(rbenv init -)"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
