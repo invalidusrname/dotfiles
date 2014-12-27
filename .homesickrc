@@ -11,7 +11,7 @@ unless File.exists? "#{ENV['HOME']}/.vim/colors/solarized.vim"
   puts "installing solarized"
   `git clone git@github.com:altercation/solarized.git /tmp/solarized`
   `cp /tmp/solarized/vim-colors-solarized/colors/solarized.vim #{ENV['HOME']}/.vim/colors/`
-  rm -r /tmp/solarized
+  `rm -r /tmp/solarized`
 end
 
 puts "checking for pathogen"
