@@ -33,3 +33,7 @@ function rffl {
  cucumber features/"$1".feature:"$2"
 }
 
+# run puppet in development mode
+function rp {
+  sudo puppet apply --environment development --debug --confdir /var/puppet /var/puppet/environments/development/manifests
+}
