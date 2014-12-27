@@ -22,7 +22,7 @@ if [[ -f $HOME/.private_vars ]]; then
   source "$HOME/.private_vars"
 fi
 
-export PATH="./bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="./bin:/usr/local/bin:/usr/local/sbin:$HOME/.rbenv/bin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
