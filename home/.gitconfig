@@ -7,6 +7,6 @@
 [alias]
   lw = "log --author=McMahand --since='last monday' --until='last sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
   cw = "log --author=McMahand --since='this monday' --until='this sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
-  td = "log --author=McMahand --since='today' --until='now' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
+  td = "log --author=McMahand --after='yesterday' --format='%Cgreen%ad%Creset %s%Creset' --date=short"
 [push]
 	default = simple

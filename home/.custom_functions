@@ -38,23 +38,33 @@ function rp {
   sudo puppet apply --environment development --debug --confdir /var/puppet /var/puppet/environments/development/manifests
 }
 
-
 function git_report {
   x=`pwd`
-  for d in $1/*; do
-    cd $d
+  if [ -d $1/.git ]; then
     OUT=$(git $2)
     if [ ! -z "$OUT" ]; then
       basename `pwd`
       echo "$OUT"
     fi
     OUT=''
-  done
+  else
+    for d in $1/*; do
+      cd $d
+      OUT=$(git $2)
+      if [ ! -z "$OUT" ]; then
+        basename `pwd`
+        echo "$OUT"
+      fi
+      OUT=''
+    done
+  fi
+
   cd $x
 }
 
 function lw {
   git_report /var/apps lw
+  git_report /var/gems lw
   git_report /var/gems lw
 }
 
@@ -66,5 +76,6 @@ function cw {
 function td {
   git_report /var/apps td
   git_report /var/gems td
+  git_report /var/puppet td
 }
 
