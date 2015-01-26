@@ -41,6 +41,7 @@ function rp {
 function git_report {
   x=`pwd`
   if [ -d $1/.git ]; then
+    cd $1
     OUT=$(git $2)
     if [ ! -z "$OUT" ]; then
       basename `pwd`
