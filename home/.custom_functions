@@ -37,3 +37,34 @@ function rffl {
 function rp {
   sudo puppet apply --environment development --debug --confdir /var/puppet /var/puppet/environments/development/manifests
 }
+
+
+function git_report {
+  x=`pwd`
+  for d in $1/*; do
+    cd $d
+    OUT=$(git $2)
+    if [ ! -z "$OUT" ]; then
+      basename `pwd`
+      echo "$OUT"
+    fi
+    OUT=''
+  done
+  cd $x
+}
+
+function lw {
+  git_report /var/apps lw
+  git_report /var/gems lw
+}
+
+function cw {
+  git_report /var/apps cw
+  git_report /var/gems cw
+}
+
+function td {
+  git_report /var/apps td
+  git_report /var/gems td
+}
+
