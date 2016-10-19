@@ -48,7 +48,12 @@ alias p4d='p4 diff -duw'
 alias p4dm="p4d | $EDITOR"
 alias p4s="p4 sync"
 
+alias vm="cd ~/dev/play/personal_vm"
 alias b4="cd ~/dev/work/b4/devbox"
-alias cx="cd ~/dev/work/connexio/devbox"
-alias vssh="cx; vagrant ssh"
-alias tk="cd ~/dev/work/technekes/devbox"
+alias wells="cd ~/dev/work/wells/devbox"
+alias ww="wells; vagrant ssh"
+alias wu="wells; vagrant up wells-dev"
+alias wd="wells; vagrant halt"
+alias wr="wells; vagrant ssh -c 'cd dev/alice; ./bin/rails s -b 0.0.0.0'"
+
+alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
