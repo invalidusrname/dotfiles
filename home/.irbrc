@@ -7,11 +7,8 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 alias q exit
 
 require 'rubygems'
-#require 'wirble'
-
-# start wirble (with color)
-#Wirble.init
-#Wirble.colorize
+require 'json'
+require 'awesome_print'
 
 ## RAILS STUFF
 
