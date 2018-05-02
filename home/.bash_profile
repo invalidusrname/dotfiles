@@ -22,9 +22,14 @@ if [[ -f $HOME/.private_vars ]]; then
   source "$HOME/.private_vars"
 fi
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+source <(kubectl completion bash)
+
 export PATH="./bin:/usr/local/bin:/usr/local/sbin:$HOME/.rbenv/bin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 eval "$(rbenv init -)"
-

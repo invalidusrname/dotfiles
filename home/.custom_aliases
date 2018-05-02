@@ -8,7 +8,7 @@ alias lusers="netstat -na | grep 548"
 alias myip='curl http://remoteip.f-trans.net'
 
 # tmux
-alias t='tmux -u -2'
+alias tm='tmux -u -2'
 
 # git
 alias gl='git pull'
@@ -49,8 +49,12 @@ alias p4dm="p4d | $EDITOR"
 alias p4s="p4 sync"
 
 # docker
-alias ds="docker-compose exec app /bin/sh"
+alias dcb="docker-compose build"
+alias dcd="docker-compose down"
+alias dcu="docker-compose up"
+alias dcs="docker-compose exec app /bin/sh"
 
+alias dev="cd ~/dev"
 alias vm="cd ~/dev/play/personal_vm"
 alias b4="cd ~/dev/work/b4/chargeback-prevention"
 alias wells="cd ~/dev/work/wells/devbox"

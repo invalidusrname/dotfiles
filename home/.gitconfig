@@ -1,6 +1,7 @@
 [user]
 	name = Matt McMahand
 	email = mmcmahand@gmail.com
+	signingkey = 832D8FA2BF2E7FDBF01B9C4A9AA07A4299CCF5E5
 [color]
 	ui = true
 	diff = true
@@ -8,5 +9,13 @@
   lw = "log --author=McMahand --since='last monday' --until='last sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
   cw = "log --author=McMahand --since='this monday' --until='this sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
   td = "log --author=McMahand --after='yesterday' --format='%Cgreen%ad%Creset %s%Creset' --date=short"
+  lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 [push]
 	default = simple
+[commit]
+	gpgsign = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

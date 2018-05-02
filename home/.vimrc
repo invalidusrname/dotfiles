@@ -24,6 +24,9 @@ let c_space_errors = 1
 let java_space_errors = 1
 let ruby_space_errors = 1
 
+set wildignore=*.pyc
+let g:netrw_list_hide= '.*\.swp$,.*\.pyc'
+
 " Backups & Files
 set backup                   " Enable creation of backup file.
 set backupdir=~/.vim/backups " Where backups will go.
