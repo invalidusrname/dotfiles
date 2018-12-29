@@ -55,6 +55,7 @@ alias dcu="docker-compose up"
 alias dcs="docker-compose exec app /bin/sh"
 
 alias dev="cd ~/dev"
+alias play="cd ~/dev/play"
 alias vm="cd ~/dev/play/personal_vm"
 alias b4="cd ~/dev/work/b4/chargeback-prevention"
 alias wells="cd ~/dev/work/wells/devbox"
