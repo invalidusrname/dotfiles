@@ -26,10 +26,18 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-source <(kubectl completion bash)
+#source <(kubectl completion bash)
 
-export PATH="./bin:/usr/local/bin:/usr/local/sbin:$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/mysql/bin/:./bin:/usr/local/bin:/usr/local/sbin:$HOME/.rbenv/bin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 eval "$(rbenv init -)"
+
+complete -C /usr/local/bin/vault vault
+
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:${PATH}"
+export PATH
