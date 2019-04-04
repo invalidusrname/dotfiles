@@ -14,8 +14,6 @@
 	cis = commit -S
 [push]
 	default = simple
-[commit]
-	gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
