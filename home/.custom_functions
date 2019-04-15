@@ -92,3 +92,10 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
       man "$@"
 }
+
+function pv() {
+  local d="${1:-$HOME/Downloads/torrents/complete}"
+  local extension="${2:-mp4}"
+  for F in $(find "$d" | grep "$extension"); do mv "$F" $d; done
+}
+
