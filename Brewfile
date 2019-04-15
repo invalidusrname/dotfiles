@@ -7,6 +7,6 @@ cask "iterm2"
 
 #install brew-cask
 
-install gpg2
-install pinentry-mac
+brew "gpg2"
+brew "pinentry-mac"
 
