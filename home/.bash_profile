@@ -41,3 +41,9 @@ complete -C /usr/local/bin/vault vault
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:${PATH}"
 export PATH
+
+if [ -d '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk' ]; then
+    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+fi
+
