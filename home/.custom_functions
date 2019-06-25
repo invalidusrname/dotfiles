@@ -99,3 +99,6 @@ function pv() {
   for F in $(find "$d" | grep "$extension"); do mv "$F" $d; done
 }
 
+function update_ruby_versions() {
+  cd $HOME/.rbenv/plugins/ruby-build && git pull && cd -
+}
