@@ -51,7 +51,7 @@ alias p4s="p4 sync"
 # docker
 alias dcb="docker-compose build"
 alias dcd="docker-compose down"
-alias dcu="docker-compose up"
+alias dcu="docker-compose up --force-recreate"
 alias dcsh="docker-compose exec app /bin/sh"
 alias dcs="docker-compose exec web /bin/bash"
 alias dcr="docker-compose run web /bin/bash"
