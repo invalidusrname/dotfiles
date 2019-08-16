@@ -96,7 +96,17 @@ man() {
 function pv() {
   local d="${1:-$HOME/Downloads/torrents/complete}"
   local extension="${2:-mp4}"
-  for F in $(find "$d" | grep "$extension"); do mv "$F" $d; done
+
+  for F in $(find "$d" | grep "$extension"); do 
+    if [ -f "$F" ]; then
+      NAME=$(basename $F)
+      DESTINATION="$d/$NAME"
+      if [[ "$F" != "$DESTINATION" ]]; then
+        echo "Moving $F to $DESTINATION"
+        mv "$F" $DESTINATION; 
+      fi
+    fi
+  done
 }
 
 function update_ruby_versions() {
