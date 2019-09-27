@@ -112,3 +112,8 @@ function pv() {
 function update_ruby_versions() {
   cd $HOME/.rbenv/plugins/ruby-build && git pull && cd -
 }
+
+clean_branches() {
+  git remote prune origin
+  git branch -vv | grep "origin/.*: gone]" | awk '{print $1}' | xargs git branch -D
+}
