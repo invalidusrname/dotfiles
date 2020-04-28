@@ -97,13 +97,13 @@ function pv() {
   local d="${1:-$HOME/Downloads/torrents/complete}"
   local extension="${2:-mp4}"
 
-  for F in $(find "$d" | grep "$extension"); do 
+  for F in $(find "$d" | grep "$extension"); do
     if [ -f "$F" ]; then
       NAME=$(basename $F)
       DESTINATION="$d/$NAME"
       if [[ "$F" != "$DESTINATION" ]]; then
         echo "Moving $F to $DESTINATION"
-        mv "$F" $DESTINATION; 
+        mv "$F" $DESTINATION;
       fi
     fi
   done
@@ -111,4 +111,9 @@ function pv() {
 
 function update_ruby_versions() {
   cd $HOME/.rbenv/plugins/ruby-build && git pull && cd -
+}
+
+clean_branches() {
+  git remote prune origin
+  git branch -vv | grep "origin/.*: gone]" | awk '{print $1}' | xargs git branch -D
 }
