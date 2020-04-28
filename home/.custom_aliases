@@ -40,6 +40,8 @@ alias bu="b update"
 alias be="b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
+alias uruby="cd $HOME/.rbenv/plugins/ruby-build && git pull && cd -"
+
 # cucumber
 alias rf='rake features'
 
@@ -56,6 +58,7 @@ alias dcu="dc up"
 alias dcsh="dc exec app /bin/sh"
 alias dcs="dc exec web /bin/bash"
 alias dcr="dc run web /bin/bash"
+alias dptw="dc run web ptw"
 
 alias dev="cd ~/dev"
 alias play="cd ~/dev/play"
