@@ -11,6 +11,8 @@ cask "iterm2"
 cask "macdown"
 cask "slack"
 cask "sublime-text"
+cask "transmission"
+cask "transmission-remote-gui"
 
 brew "gpg2"
 brew "heroku/brew/heroku"
