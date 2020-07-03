@@ -14,6 +14,9 @@ cask "sublime-text"
 cask "transmission"
 cask "transmission-remote-gui"
 
+brew "coreutils"
+brew "curl"
+brew "git"
 brew "gpg2"
 brew "heroku/brew/heroku"
 brew "kubernetes-cli", link: false
@@ -25,4 +28,5 @@ brew "tree"
 brew "terraform"
 brew "wget"
 brew "yarn"
+brew "asdf"
 
