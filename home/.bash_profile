@@ -28,11 +28,10 @@ fi
 
 #source <(kubectl completion bash)
 
-export PATH="/usr/local/mysql/bin/:./bin:/usr/local/bin:/usr/local/sbin:$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/mysql/bin/:./bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-eval "$(rbenv init -)"
 
 complete -C /usr/local/bin/vault vault
 
@@ -48,3 +47,7 @@ if [ -d '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk' ]; then
 fi
 
 source <(kubectl completion bash)
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
