@@ -26,8 +26,8 @@ alias g4s='git-p4 submit'
 alias r='ruby'
 
 # rails
-alias sc='./script/console'
-alias ss='./script/rails server'
+alias sc='./bin/rails console'
+alias rs='./bin/rails server'
 alias restart_rails='touch tmp/restart.txt'
 alias rt='rake test'
 alias tl="tail -f log/development.log"
@@ -40,7 +40,8 @@ alias bu="b update"
 alias be="b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
-alias uruby="cd $HOME/.rbenv/plugins/ruby-build && git pull && cd -"
+
+alias uruby="asdf plugin update ruby; echo 'TO INSTALL: asdf install ruby X.X.X'"
 
 # cucumber
 alias rf='rake features'
@@ -57,11 +58,13 @@ alias dcd="dc down"
 alias dcu="dc up"
 alias dcsh="dc exec app /bin/sh"
 alias dcs="dc exec web /bin/bash"
-alias dcr="dc run web /bin/bash"
+alias dcor="dc -f docker-compose.yml -f docker-compose.overrides.yml run web /bin/bash"
+alias dcr="dc run app /bin/bash"
 alias dptw="dc run web ptw"
 
 alias dev="cd ~/dev"
 alias play="cd ~/dev/play"
+alias ss="play; cd scene_collector"
 alias vm="cd ~/dev/play/personal_vm"
 alias b4="cd ~/dev/work/b4/chargeback-prevention"
 alias wells="cd ~/dev/work/wells/devbox"
@@ -75,4 +78,15 @@ alias wd="wells; vagrant halt"
 alias wr="wells; vagrant ssh -c 'cd dev/alice; ./bin/rails s -b 0.0.0.0'"
 
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
+
+alias dev="cd ~/dev/"
+alias nomad="cd ~/dev/work/nomadhealth"
+
+alias dc="docker-compose"
+alias dcd="docker-compose down"
+
+alias dev-bastion="gcloud compute ssh dev-bastion-host --project dev-host-environment-4d3e --zone us-east1-c"
+alias prod-bastion="gcloud compute ssh prod-bastion-host --project prod-host-environment-2a5c --zone us-east1-c"
+
+alias ms="make start"
 
