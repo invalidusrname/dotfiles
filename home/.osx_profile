@@ -11,11 +11,12 @@ alias e="echo 'STOP USING THIS KEY DUMBASS'"
 alias ubundles="AA=$(pwd); cd /Library/Application\ Support/TextMate; svn up; cd $AA;"
 
 # mysql
-alias mysqlstart='sudo //usr/local/bin/mysqld_safe &'
-alias mysqlstop='//usr/local/bin/mysqladmin -u root -p shutdown'
+alias mysqlstart='sudo /usr/local/bin/mysqld_safe &'
+alias mysqlstop='/usr/local/bin/mysqladmin -u root -p shutdown'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
 
 if [ -f `brew --prefix`/etc/bash_completion.d/vagrant ]; then
   source `brew --prefix`/etc/bash_completion.d/vagrant

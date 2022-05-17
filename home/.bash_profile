@@ -1,14 +1,14 @@
 if [ -r $HOME/.custom_functions ]; then
   source $HOME/.custom_functions
-fi                                
+fi
 
 if [ -r $HOME/.custom_variables ]; then
   source $HOME/.custom_variables
-fi                                
+fi
 
 if [ -r $HOME/.custom_aliases ]; then
   source $HOME/.custom_aliases
-fi                                
+fi
 
 if [ -r $HOME/.private_vars ]; then
   source $HOME/.private_vars
