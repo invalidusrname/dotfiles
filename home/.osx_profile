@@ -3,6 +3,31 @@ export EDITOR=vim
 export LC_CTYPE=en_US.UTF-8
 export VIM_APP_DIR='/Applications'
 
+if [ -f /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  export HOMEBREW_BASH_COMPLETION=$HOMEBREW_PREFIX/etc/bash_completion.d/brew
+  export HOMEBREW_ASDF=$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+  export HOMEBREW_ASDF_COMPLETION=$HOMEBREW_PREFIX/opt/asdf/etc/bash_completion.d/asdf.bash
+
+  if [ -f $HOMEBREW_BASH_COMPLETION ]; then
+    . $HOMEBREW_BASH_COMPLETION
+  fi
+
+  if [ -f $HOMEBREW_ASDF ]; then
+    . $HOMEBREW_ASDF
+  fi
+
+  if [ -f $HOMEBREW_ASDF_COMPLETION ]; then
+    . $HOMEBREW_ASDF_COMPLETION
+  fi
+else
+  echo "Homebrew not installed. Install with: "
+  echo '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+fi
+
+export PATH="/usr/local/mysql/bin/:./bin:/usr/local/bin:/usr/local/sbin:$PATH"
+
 # aliases
 alias dp="cd ~/Desktop"
 

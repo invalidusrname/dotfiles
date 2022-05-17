@@ -17,17 +17,7 @@ fi
 # OSX specific
 if [[ `uname` == 'Darwin' && -f $HOME/.osx_profile ]]; then
   source "$HOME/.osx_profile"
-
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-  fi
-
-  . /usr/local/opt/asdf/asdf.sh
-  . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
-
-  export PATH="/usr/local/mysql/bin/:./bin:/usr/local/bin:/usr/local/sbin:$PATH"
 fi
-
 
 if [[ `uname` == "Linux" ]]; then
   eval `dircolors $HOME/dev/play/gnome-terminal-colors-solarized/dircolors`
