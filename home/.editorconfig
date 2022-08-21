@@ -2,18 +2,19 @@
 
 end_of_line = lf
 insert_final_newline = true
+charset = utf-8
 
 [*.{js,py,rb}]
-charset = utf-8
+trim_trailing_whitespace = true
+indent_size = space
 
 # 4 space indentation
 [*.py]
-indent_style = space
 indent_size = 4
 
 [*.rb]
-indent_size = space
 indent_size = 2
 
 [Makefile]
 indent_style = tab
+

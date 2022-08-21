@@ -2,6 +2,8 @@
 ._*
 .svn
 .hg
-log/*.log 
-config/database.yml 
+config/database.yml
+docker-compose.overrides.yml
+log/*.log
 tmp/*
+

@@ -22,3 +22,11 @@
 	required = true
 [commit]
 	gpgsign = true
+[core]
+	excludesfile = /Users/matt/.gitignore
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
