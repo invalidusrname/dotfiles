@@ -1,14 +1,14 @@
 if [ -r $HOME/.custom_functions ]; then
   source $HOME/.custom_functions
-fi                                
+fi
 
 if [ -r $HOME/.custom_variables ]; then
   source $HOME/.custom_variables
-fi                                
+fi
 
 if [ -r $HOME/.custom_aliases ]; then
   source $HOME/.custom_aliases
-fi                                
+fi
 
 if [ -r $HOME/.private_vars ]; then
   source $HOME/.private_vars
@@ -17,7 +17,6 @@ fi
 # OSX specific
 if [[ `uname` == 'Darwin' && -f $HOME/.osx_profile ]]; then
   source "$HOME/.osx_profile"
-  #export PATH="/usr/local/mysql/bin/:./bin:/usr/local/bin:/usr/local/sbin:$PATH"
 fi
 
 if [[ `uname` == "Linux" ]]; then

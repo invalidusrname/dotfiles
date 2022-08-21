@@ -4,6 +4,31 @@ export LC_CTYPE=en_US.UTF-8
 export VIM_APP_DIR='/Applications'
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+if [ -f /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  export HOMEBREW_BASH_COMPLETION=$HOMEBREW_PREFIX/etc/bash_completion.d/brew
+  export HOMEBREW_ASDF=$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+  export HOMEBREW_ASDF_COMPLETION=$HOMEBREW_PREFIX/opt/asdf/etc/bash_completion.d/asdf.bash
+
+  if [ -f $HOMEBREW_BASH_COMPLETION ]; then
+    . $HOMEBREW_BASH_COMPLETION
+  fi
+
+  if [ -f $HOMEBREW_ASDF ]; then
+    . $HOMEBREW_ASDF
+  fi
+
+  if [ -f $HOMEBREW_ASDF_COMPLETION ]; then
+    . $HOMEBREW_ASDF_COMPLETION
+  fi
+else
+  echo "Homebrew not installed. Install with: "
+  echo '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+fi
+
+export PATH="/usr/local/mysql/bin/:./bin:/usr/local/bin:/usr/local/sbin:$PATH"
+
 # aliases
 alias dp="cd ~/Desktop"
 
@@ -12,8 +37,8 @@ alias e="echo 'STOP USING THIS KEY DUMBASS'"
 alias ubundles="AA=$(pwd); cd /Library/Application\ Support/TextMate; svn up; cd $AA;"
 
 # mysql
-alias mysqlstart='sudo //usr/local/bin/mysqld_safe &'
-alias mysqlstop='//usr/local/bin/mysqladmin -u root -p shutdown'
+alias mysqlstart='sudo /usr/local/bin/mysqld_safe &'
+alias mysqlstop='/usr/local/bin/mysqladmin -u root -p shutdown'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -21,12 +46,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [ -d $HOMEBREW_PREFIX ]; then
-
-  
-  if [ -d $HOMEBREW_PREFIX ]; then
-    . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
-    . $HOMEBREW_PREFIX/opt/asdf/etc/bash_completion.d/asdf.bash
-  fi
+  . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+  . $HOMEBREW_PREFIX/opt/asdf/etc/bash_completion.d/asdf.bash
 
   if [ -f $HOMEBREW_PREFIX/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
@@ -36,4 +57,3 @@ if [ -d $HOMEBREW_PREFIX ]; then
     export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
   fi
 fi
-
