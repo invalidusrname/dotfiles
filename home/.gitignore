@@ -7,6 +7,7 @@ docker-compose.overrides.yml
 home/.config/configstore/nodemon.json
 home/.config/configstore/update-notifier-npm.json
 home/.config/gcloud/*
+home/.config/gh/hosts.yml
 home/.config/iterm2/AppSupport
 home/.config/joplin-desktop
 home/.config/nvim/plugin/packer_compiled.lua
