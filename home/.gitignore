@@ -1,9 +1,14 @@
 .DS_Store
 ._*
-.svn
 .hg
+.svn
 config/database.yml
 docker-compose.overrides.yml
+home/.config/configstore/nodemon.json
+home/.config/configstore/update-notifier-npm.json
+home/.config/gcloud/*
+home/.config/iterm2/AppSupport
+home/.config/joplin-desktop
+home/.config/nvim/plugin/packer_compiled.lua
 log/*.log
 tmp/*
-
