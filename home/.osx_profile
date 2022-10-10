@@ -57,3 +57,4 @@ if [ -d $HOMEBREW_PREFIX ]; then
     export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
   fi
 fi
+

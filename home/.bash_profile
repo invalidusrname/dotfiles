@@ -28,5 +28,7 @@ fi
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 
+export PATH="$PATH:/Users/matt/.local/bin"
+
 complete -C /usr/local/bin/vault vault
 

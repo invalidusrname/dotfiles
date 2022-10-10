@@ -146,3 +146,14 @@ function deploy() {
 
 	nomad-env deploy --pr --environment $TO_ENV --image $IMG --tag $TAG
 }
+
+function dcor() {
+  if [ -f "./docker-compose.overrides.yml" ]; then
+    docker-compose -f docker-compose.yml -f docker-compose.overrides.yml run web /bin/bash
+  elif [ -f "./docker-compose.yml" ]; then
+    docker-compose -f docker-compose.yml run web /bin/bash
+  else
+    echo "no docker-compose.yml file found"
+  fi
+}
+

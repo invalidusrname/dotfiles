@@ -58,7 +58,6 @@ alias dcd="dc down"
 alias dcu="dc up"
 alias dcsh="dc exec app /bin/sh"
 alias dcs="dc exec web /bin/bash"
-alias dcor="dc -f docker-compose.yml -f docker-compose.overrides.yml run web /bin/bash"
 alias dcr="dc run app /bin/bash"
 alias dptw="dc run web ptw"
 
