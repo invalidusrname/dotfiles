@@ -16,6 +16,8 @@ return {
     { key = 'k', mods = 'CMD', action = act.ClearScrollback 'ScrollbackAndViewport' }
   },
 
+  default_prog = { '/bin/bash', '-l' },
+
   --initial_cols = 200,
   --initial_rows = 65,
 }

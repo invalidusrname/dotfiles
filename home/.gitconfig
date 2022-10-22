@@ -7,9 +7,10 @@
 	diff = true
 [alias]
   l = "!. ~/.githelpers && pretty_git_log"
-  lw = "log --author=McMahand --since='last monday' --until='last sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
-  cw = "log --author=McMahand --since='this monday' --until='this sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
-  td = "log --author=McMahand --after='yesterday' --format='%Cgreen%ad%Creset %s%Creset' --date=short"
+  lw = "log --since='last week' --until='last sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
+  lm = "log --author='McMahand' --since='last month' --until='today' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
+  cw = "log --author='McMahand' --since='this monday' --until='this sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
+  td = "log --author='McMahand' --after='yesterday' --format='%Cgreen%ad%Creset %s%Creset' --date=short"
   lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 	logs = log --show-signature
 	cis = commit -S
@@ -27,3 +28,7 @@
 [credential "https://github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
+[log]
+	mailmap = true
+[mailmap]
+	file = /Users/mmcmahand/.mailmap
