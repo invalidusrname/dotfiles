@@ -24,11 +24,12 @@
 [commit]
 	gpgsign = true
 [core]
-	excludesfile = /Users/matt/.gitignore
+	excludesfile = ~/.gitignore
 [credential "https://github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 [log]
 	mailmap = true
 [mailmap]
-	file = /Users/mmcmahand/.mailmap
+	file = ~/.mailmap
+
