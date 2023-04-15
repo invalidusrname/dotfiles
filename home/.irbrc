@@ -10,13 +10,12 @@ rescue LoadError
   puts "could not load awesome_print. install with: gem install awesome_print"
 end
 
-ARGV.concat [ "--readline", "--prompt-mode", "simple" ]
+ARGV.concat ["--readline", "--prompt-mode", "simple"]
 
 IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.config/irb/irb_save_history"
 
 alias q exit
-
 
 # log Active Record SQL to STDOUT
 if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
@@ -29,12 +28,11 @@ def me
 end
 
 def pbcopy(input)
- str = input.to_s
- IO.popen('pbcopy', 'w') { |f| f << str }
- str
+  str = input.to_s
+  IO.popen('pbcopy', 'w') { |f| f << str }
+  str
 end
 
 def pbpaste
   `pbpaste`
 end
-

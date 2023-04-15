@@ -6,7 +6,7 @@ function authme {
 if [ -r $HOME/.git-completion.sh ];
 then
   source $HOME/.git-completion.sh
-fi                                
+fi
 
 function parse_git_branch {
   branch_prompt=$(__git_ps1)
@@ -157,3 +157,26 @@ function dcor() {
   fi
 }
 
+
+function microk8s_token() {
+  K8S_HOST=um580
+  ssh $K8S_HOST 'microk8s kubectl create token default'
+}
+
+function mdls_it() {
+  if [[ $1 != "" ]]; then
+    P="$1"
+  else
+    P="."
+  fi
+
+  for F in $(find $P -type f -not -name "*.txt" -not -name ".DS_Store" -not -name ".part"); do
+    TXT=$F.txt;
+    if [[ ! -f "$TXT" ]]; then
+      echo "[ADD] $TXT";
+      mdls $F > $F.txt
+    else
+      echo "[SKIP] $TXT";
+    fi
+  done
+}

@@ -2,9 +2,6 @@
 	name = Matt McMahand
 	email = matt@invalid8.com
 	signingkey = E288164435BD1457
-[color]
-	ui = true
-	diff = true
 [alias]
   l = "!. ~/.githelpers && pretty_git_log"
   lw = "log --since='last week' --until='last sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
@@ -15,14 +12,9 @@
 	logs = log --show-signature
 	cis = commit -S
   alias-master-as-main = !git symbolic-ref refs/heads/main refs/heads/master && git symbolic-ref refs/remotes/origin/main refs/remotes/origin/master && git switch main
-[push]
-	default = simple
-	autoSetupRemote = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+[color]
+	ui = true
+	diff = true
 [commit]
 	gpgsign = true
 [core]
@@ -30,8 +22,20 @@
 [credential "https://github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [log]
 	mailmap = true
 [mailmap]
 	file = ~/.mailmap
+[push]
+	default = simple
+	autoSetupRemote = true
 
+[diff]
+	wsErrorHighlight = all
+[init]
+	defaultBranch = master

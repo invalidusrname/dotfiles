@@ -32,10 +32,6 @@ export PATH="/usr/local/mysql/bin/:./bin:/usr/local/bin:/usr/local/sbin:$PATH"
 # aliases
 alias dp="cd ~/Desktop"
 
-# textmate
-alias e="echo 'STOP USING THIS KEY DUMBASS'"
-alias ubundles="AA=$(pwd); cd /Library/Application\ Support/TextMate; svn up; cd $AA;"
-
 # mysql
 alias mysqlstart='sudo /usr/local/bin/mysqld_safe &'
 alias mysqlstop='/usr/local/bin/mysqladmin -u root -p shutdown'
@@ -46,15 +42,36 @@ export PATH="/usr/local/heroku/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [ -d $HOMEBREW_PREFIX ]; then
+  if [[ -r $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]]; then
+    . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
+  fi
+
   . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
   . $HOMEBREW_PREFIX/opt/asdf/etc/bash_completion.d/asdf.bash
 
   if [ -f $HOMEBREW_PREFIX/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+    . $HOMEBREW_PREFIX/etc/bash_completion
+  fi
+
+  if [ -f $HOMEBREW_PREFIX/etc/bash_completion.d/limactl ]; then
+    . $HOMEBREW_PREFIX/etc/bash_completion.d/limactl
   fi
 
   if [ -f $HOMEBREW_PREFIX/libpq/bin ]; then
     export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
   fi
 fi
+
+export ONE_PASSWORD_OP_PLUGINS="${HOME}/.config/op/plugins.sh"
+
+if [ -f $ONE_PASSWORD_OP_PLUGINS ]; then
+  source $ONE_PASSWORD_OP_PLUGINS
+fi
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/matt/google-cloud-sdk/path.bash.inc' ]; then . '/Users/matt/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/matt/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/matt/google-cloud-sdk/completion.bash.inc'; fi
 

@@ -89,3 +89,10 @@ alias prod-bastion="gcloud compute ssh prod-bastion-host --project prod-host-env
 
 alias ms="make start"
 
+## github
+
+alias ghpr="gh pr checkout"
+
+## vnc
+alias um580_tunnel="ssh -L 59000:localhost:5901 -C -N -l matt um580"
+

@@ -32,3 +32,7 @@ export PATH="$PATH:/Users/matt/.local/bin"
 
 complete -C /usr/local/bin/vault vault
 
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
