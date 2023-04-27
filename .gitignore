@@ -4,15 +4,12 @@
 .svn
 config/database.yml
 docker-compose.overrides.yml
-home/.config/Readarr
 home/.config/configstore/nodemon.json
 home/.config/configstore/update-notifier-npm.json
 home/.config/gcloud/*
 home/.config/gh/hosts.yml
-home/.config/irb/irb_save_history
 home/.config/iterm2/AppSupport
 home/.config/joplin-desktop/*
 home/.config/nvim/plugin/packer_compiled.lua
-home/.config/op
 log/*.log
 tmp/*

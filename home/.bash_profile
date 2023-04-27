@@ -1,4 +1,5 @@
 if [ -r $HOME/.custom_functions ]; then
+
   source $HOME/.custom_functions
 fi
 

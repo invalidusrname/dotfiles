@@ -1,9 +1,9 @@
-require "fileutils"
+require 'fileutils'
 
-puts "making vim dirs"
+puts 'making vim dirs'
 
-vim_dir = File.join(File.expand_path(ENV["HOME"]), ".vim")
-vim_colors_dir = File.join(File.expand_path(vim_dir), "colors")
+vim_dir = File.join(File.expand_path(ENV['HOME']), '.vim')
+vim_colors_dir = File.join(File.expand_path(vim_dir), 'colors')
 pathogen_path = "#{vim_dir}/autoload/pathogen.vim"
 
 %w[backups tmp colors autoload bundle].each do |dir|
@@ -11,20 +11,20 @@ pathogen_path = "#{vim_dir}/autoload/pathogen.vim"
   FileUtils.mkdir_p(path) unless Dir.exist?(path)
 end
 
-puts "checking for solarized"
+puts 'checking for solarized'
 
-unless File.exist? File.join(vim_colors_dir, "colors/solarized.vim")
-  tmp = "/tmp/solarized"
-  puts "installing solarized"
+unless File.exist? File.join(vim_colors_dir, 'colors/solarized.vim')
+  tmp = '/tmp/solarized'
+  puts 'installing solarized'
 
   `git clone git@github.com:altercation/solarized.git #{tmp}`
   `cp #{tmp}/vim-colors-solarized/colors/solarized.vim #{vim_colors_dir}/`
   `rm -r #{tmp}`
 end
 
-puts "checking for pathogen"
+puts 'checking for pathogen'
 unless File.exist? pathogen_path
-  puts "installing pathogen"
+  puts 'installing pathogen'
 
   `curl -LSso #{pathogen_path} https://tpo.pe/pathogen.vim`
 end

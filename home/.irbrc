@@ -7,10 +7,10 @@ require 'rubygems'
 begin
   require 'awesome_print'
 rescue LoadError
-  puts "could not load awesome_print. install with: gem install awesome_print"
+  puts 'could not load awesome_print. install with: gem install awesome_print'
 end
 
-ARGV.concat ["--readline", "--prompt-mode", "simple"]
+ARGV.concat ['--readline', '--prompt-mode', 'simple']
 
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.config/irb/irb_save_history"
@@ -24,7 +24,7 @@ if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
 end
 
 def me
-  User.find_by_email "mmcmahand@gmail.com"
+  User.find_by_email 'mmcmahand@gmail.com'
 end
 
 def pbcopy(input)
