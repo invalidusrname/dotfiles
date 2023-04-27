@@ -1,0 +1,25 @@
+# make terminal pretty
+export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=gxgxcxdxbxegedabagacad  # cyan directories
+PS1='\u@\h:\w'
+PS2="> "
+
+# git
+PS1="$PS1\$(parse_git_branch)\$ "
+
+# BitchX
+export IRCUSER='invalidusrname'
+export IRCNAME="invalidusrname"
+export IRCSERVER="irc.freenode.net"
+
+## DEVELOPMENT
+export EDITOR='vim'
+
+# ruby
+export RI="--format ansi -T --width 70"
+export RUBYOPT="-W0" # or "-W:no-deprecated -W:no-experimental"
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+#export CLOUDSDK_PYTHON=python2
