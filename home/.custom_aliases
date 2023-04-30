@@ -5,7 +5,7 @@ alias c='clear'
 alias l="ls -CaGpltr"
 alias ls="ls -Gl"
 alias lusers="netstat -na | grep 548"
-alias myip='curl http://remoteip.f-trans.net'
+alias myip='curl -s icanhazip.com'
 
 # tmux
 alias tm='tmux -u -2'
@@ -40,7 +40,8 @@ alias bu="b update"
 alias be="b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
-
+# util
+alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 alias uruby="asdf plugin update ruby; echo 'TO INSTALL: asdf install ruby X.X.X'"
 
 # cucumber
@@ -63,36 +64,22 @@ alias dptw="dc run web ptw"
 
 alias dev="cd ~/dev"
 alias play="cd ~/dev/play"
-alias ss="play; cd scene_collector"
-alias vm="cd ~/dev/play/personal_vm"
-alias b4="cd ~/dev/work/b4/chargeback-prevention"
-alias wells="cd ~/dev/work/wells/devbox"
-alias uu="cd ~/dev/work/unique_usa"
+
+alias ss="play; cd scraper"
+alias blog="cd ~/dev/play/mm-blog"
+
+# work related
 alias nomad="cd ~/dev/work/nomad"
 alias nf="nomad; cd nomad-flask"
-alias blog="cd ~/dev/play/mm-blog"
-alias ww="wells; vagrant ssh"
-alias wu="wells; vagrant up wells-dev"
-alias wd="wells; vagrant halt"
-alias wr="wells; vagrant ssh -c 'cd dev/alice; ./bin/rails s -b 0.0.0.0'"
-
-alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
-
-alias dev="cd ~/dev/"
-alias nomad="cd ~/dev/work/nomadhealth"
-
-alias dc="docker-compose"
-alias dcd="docker-compose down"
 
 alias dev-bastion="gcloud compute ssh dev-bastion-host --project dev-host-environment-4d3e --zone us-east1-c"
 alias prod-bastion="gcloud compute ssh prod-bastion-host --project prod-host-environment-2a5c --zone us-east1-c"
-
 alias ms="make start"
 
 ## github
 
 alias ghpr="gh pr checkout"
-
 ## vnc
-alias um580_tunnel="ssh -L 59000:localhost:5901 -C -N -l matt um580"
+alias um580_tunnel="ssh -vL 59000:localhost:5901 -C -N -l matt um580"
+alias um690_tunnel="ssh -vL 59001:localhost:5902 -C -N -l matt um690"
 
