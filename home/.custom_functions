@@ -8,6 +8,11 @@ then
   source $HOME/.git-completion.sh
 fi
 
+if [ -r $HOME/.git-prompt.sh ];
+then
+  source $HOME/.git-prompt.sh
+fi
+
 function parse_git_branch {
   branch_prompt=$(__git_ps1)
   if [ -n "$branch_prompt" ]; then
