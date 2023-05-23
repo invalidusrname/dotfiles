@@ -41,3 +41,5 @@
 	defaultBranch = master
 [pull]
 	rebase = true
+[fetch]
+	prune = true

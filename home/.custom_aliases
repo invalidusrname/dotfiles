@@ -65,12 +65,13 @@ alias dptw="dc run web ptw"
 alias dev="cd ~/dev"
 alias play="cd ~/dev/play"
 
-alias ss="play; cd scraper"
+alias ss="play; cd invalidusrname/scraper"
 alias blog="cd ~/dev/play/mm-blog"
 
 # work related
-alias nomad="cd ~/dev/work/nomad"
+alias nomad="cd ~/dev/work/nomadhealth"
 alias nf="nomad; cd nomad-flask"
+alias mono="nomad; cd nomad-mono"
 
 alias dev-bastion="gcloud compute ssh dev-bastion-host --project dev-host-environment-4d3e --zone us-east1-c"
 alias prod-bastion="gcloud compute ssh prod-bastion-host --project prod-host-environment-2a5c --zone us-east1-c"
@@ -82,4 +83,3 @@ alias ghpr="gh pr checkout"
 ## vnc
 alias um580_tunnel="ssh -vL 59000:localhost:5901 -C -N -l matt um580"
 alias um690_tunnel="ssh -vL 59001:localhost:5902 -C -N -l matt um690"
-

@@ -153,10 +153,22 @@ function deploy() {
 }
 
 function dcor() {
+  if [[ $1 != "" ]]; then
+    SERVICE="$1"
+  else
+    SERVICE="web"
+  fi
+
+  if [[ $2 != "" ]]; then
+    CMD="$2"
+  else
+    CMD="/bin/bash"
+  fi
+
   if [ -f "./docker-compose.overrides.yml" ]; then
-    docker-compose -f docker-compose.yml -f docker-compose.overrides.yml run web /bin/bash
+    docker-compose -f docker-compose.yml -f docker-compose.overrides.yml run $SERVICE $CMD
   elif [ -f "./docker-compose.yml" ]; then
-    docker-compose -f docker-compose.yml run web /bin/bash
+    docker-compose -f docker-compose.yml run $SERVICE $CMD
   else
     echo "no docker-compose.yml file found"
   fi
