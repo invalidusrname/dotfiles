@@ -83,3 +83,6 @@ if [ -f '/Users/matt/google-cloud-sdk/path.bash.inc' ]; then . '/Users/matt/goog
 if [ -f '/Users/matt/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/matt/google-cloud-sdk/completion.bash.inc'; fi
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+export GPG_TTY=$(tty)
+

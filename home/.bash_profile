@@ -1,5 +1,8 @@
-if [ -r $HOME/.custom_functions ]; then
+if [ -r $HOME/.bash_git ]; then
+  source $HOME/.bash_git
+fi
 
+if [ -r $HOME/.custom_functions ]; then
   source $HOME/.custom_functions
 fi
 
