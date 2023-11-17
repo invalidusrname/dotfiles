@@ -165,12 +165,23 @@ function dcor() {
     CMD="/bin/bash"
   fi
 
-  if [ -f "./docker-compose.overrides.yml" ]; then
-    docker-compose -f docker-compose.yml -f docker-compose.overrides.yml run $SERVICE $CMD
-  elif [ -f "./docker-compose.yml" ]; then
-    docker-compose -f docker-compose.yml run $SERVICE $CMD
+  COMPOSE_FILE="docker-compose.yml"
+  OVERRIDE_FILE="docker-compose.overrides.yml"
+
+  if [ -f "docker-compose.yaml" ]; then
+    COMPOSE_FILE="docker-compose.yaml"
+    OVERRIDE_FILE="docker-compose.overrides.yaml"
+  elif [ -f "compose.yaml" ]; then
+    COMPOSE_FILE="compose.yaml"
+    OVERRIDE_FILE="compose.overrides.yaml"
+  fi
+
+  if [ -f ${OVERRIDE_FILE} ]; then
+    docker-compose -f ${COMPOSE_FILE} -f ${OVERRIDE_FILE} run $SERVICE $CMD
+  elif [ -f $COMPOSE_FILE ]; then
+    docker-compose -f ${COMPOSE_FILE} run $SERVICE $CMD
   else
-    echo "no docker-compose.yml file found"
+    echo "no ${COMPOSE_FILE} file found"
   fi
 }
 
@@ -197,3 +208,9 @@ function mdls_it() {
     fi
   done
 }
+
+function pyclean () {
+  find . -type f -name "*.py[co]" -delete
+  find . -type d -name "__pycache__" -exec rm -rf {} +
+}
+

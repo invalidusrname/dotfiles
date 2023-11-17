@@ -18,6 +18,7 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
+alias gcam='git commit -am'
 alias gd='git diff --color'
 alias gst='git status'
 alias g4r='git-p4 rebase'
@@ -43,6 +44,7 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 # util
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 alias uruby="asdf plugin update ruby; echo 'TO INSTALL: asdf install ruby X.X.X'"
+alias kamal="docker run -it --rm -v '${PWD}:/workdir' -v '/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock' -e SSH_AUTH_SOCK='/run/host-services/ssh-auth.sock' -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/basecamp/kamal:latest"
 
 # cucumber
 alias rf='rake features'
@@ -70,6 +72,7 @@ alias blog="cd ~/dev/play/mm-blog"
 
 # work related
 alias nomad="cd ~/dev/work/nomadhealth"
+alias admin="nomad; cd nomad-admin"
 alias nf="nomad; cd nomad-flask"
 alias mono="nomad; cd nomad-mono"
 
@@ -80,6 +83,8 @@ alias ms="make start"
 ## github
 
 alias ghpr="gh pr checkout"
+alias ghu="brew upgrade gh"
+
 ## vnc
 alias um580_tunnel="ssh -vL 59000:localhost:5901 -C -N -l matt um580"
 alias um690_tunnel="ssh -vL 59001:localhost:5902 -C -N -l matt um690"
