@@ -43,3 +43,5 @@
 	rebase = true
 [fetch]
 	prune = true
+[gpg]
+	program = gpg2

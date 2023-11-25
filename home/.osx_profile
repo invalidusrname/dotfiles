@@ -75,14 +75,5 @@ if [ -f $ONE_PASSWORD_OP_PLUGINS ]; then
   source $ONE_PASSWORD_OP_PLUGINS
 fi
 
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/matt/google-cloud-sdk/path.bash.inc' ]; then . '/Users/matt/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/matt/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/matt/google-cloud-sdk/completion.bash.inc'; fi
-
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
 export GPG_TTY=$(tty)
-

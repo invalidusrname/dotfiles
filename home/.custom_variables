@@ -20,6 +20,8 @@ export EDITOR='vim'
 export RI="--format ansi -T --width 70"
 export RUBYOPT="-W0" # or "-W:no-deprecated -W:no-experimental"
 
+# osx
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-#export CLOUDSDK_PYTHON=python2
+# google cloud
+export CLOUDSDK_PYTHON=$HOME/.asdf/shims/python
