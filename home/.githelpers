@@ -70,4 +70,3 @@ git_page_maybe() {
         less --quit-if-one-screen --no-init --RAW-CONTROL-CHARS --chop-long-lines
     fi
 }
-

@@ -1,2 +1,1 @@
 require("nvim-tree").setup()
-

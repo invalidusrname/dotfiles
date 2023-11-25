@@ -31,13 +31,8 @@ fi
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-
-export PATH="$PATH:/$HOME/.local/bin"
+export WASMTIME_HOME=$HOME/.wasmtime
 
 complete -C /usr/local/bin/vault vault
 
-
-export WASMTIME_HOME="$HOME/.wasmtime"
-
-export PATH="$WASMTIME_HOME/bin:$PATH"
-
+export PATH="$WASMTIME_HOME/bin:$HOME/.local/bin:$PATH"

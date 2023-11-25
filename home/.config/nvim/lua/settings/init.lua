@@ -15,4 +15,3 @@ set.visualbell = true
 -- fixme : figure out how to use if(has("termguicolors"))
 set.termguicolors = true
 set.background = dark
-

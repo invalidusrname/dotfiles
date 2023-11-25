@@ -1,3 +1,2 @@
 --type-add=ruby=.haml
 --type-set=tmstuff=.tmproj,.tm_build_errors
-
