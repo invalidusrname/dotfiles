@@ -17,9 +17,12 @@ unless File.exist? File.join(vim_colors_dir, 'colors/solarized.vim')
   tmp = '/tmp/solarized'
   puts 'installing solarized'
 
-  `git clone git@github.com:altercation/solarized.git #{tmp}`
-  `cp #{tmp}/vim-colors-solarized/colors/solarized.vim #{vim_colors_dir}/`
-  `rm -r #{tmp}`
+  `rm -rf #{tmp}`
+  `git clone https://github.com/altercation/solarized #{tmp}`
+
+  `rm -rf #{vim_colors_dir}/solarized.vim`
+  `cp -f #{tmp}/vim-colors-solarized/colors/solarized.vim #{vim_colors_dir}/`
+  `rm -rf #{tmp}`
 end
 
 puts 'checking for pathogen'
