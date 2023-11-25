@@ -1,46 +1,43 @@
 cask_args appdir: '/Applications'
 
-tap 'homebrew/cask'
-tap 'heroku/brew'
 tap 'homebrew/bundle'
-tap 'homebrew/core'
 
+# essential
 cask '1password'
+cask '1password-cli'
 cask 'firefox'
 cask 'google-chrome'
 cask 'iterm2'
+cask 'private-internet-access'
 
-# cask 'macdown'
-cask 'slack'
-cask 'sublime-text'
+# utilities
+brew 'curl'
+brew 'git'
+brew 'gpg2'
+brew 'tree'
+brew 'wget'
+
+# development
+brew 'pre-commit'
+brew 'gh'
+# brew 'kubernetes-cli', link: false
+# brew 'pinentry-mac'
+
+# text
 cask 'espanso'
 cask 'rectangle-pro'
+brew 'joplin'
+brew 'neovim'
+cask 'sublime-text'
 
-# cask 'google-cloud-sdk'
-
+# misc
+brew 'neofetch'
+brew 'ffmpeg'
 # cask 'transmission'
 # cask 'transmission-remote-gui'
 
-# brew 'coreutils'
-brew 'curl'
-brew 'gh'
-brew 'git'
-brew 'gpg2'
-brew 'heroku/brew/heroku'
-brew 'kubernetes-cli', link: false
-# brew 'pinentry-mac'
-# brew 'qcachegrind'
-# brew 'terraform'
-brew 'tree'
-# brew 'wget'
-
-# brew "unbound"
-# brew "gnutls"
-# brew "gnupg"
-# brew "neofetch"
-# brew "neovim"
-# brew "pre-commit"
-# brew "python@3.10"
-# brew "rcm"
+# work related
+cask 'google-cloud-sdk'
 brew 'sops'
-# cask "google-cloud-sdk"
+cask 'slack'
+cask 'zoom'
