@@ -44,5 +44,5 @@
 [pull]
   rebase = true
 [push]
-  autoSetupRemote = true
   default = simple
+  autoSetupRemote = true
