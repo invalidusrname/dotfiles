@@ -1,7 +1,7 @@
 [user]
-	name = Matt McMahand
-	email = matt@invalid8.com
-	signingkey = E288164435BD1457
+  name = Matt McMahand
+  email = matt@invalid8.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICd5yX5PSAsUi7D7Hz6eZah1TCRVHFaeHb2ZOR/2rLrW
 [alias]
   l = "!. ~/.githelpers && pretty_git_log"
   lw = "log --since='last week' --until='last sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
@@ -9,39 +9,40 @@
   cw = "log --author='McMahand' --since='this monday' --until='this sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
   td = "log --author='McMahand' --after='yesterday' --format='%Cgreen%ad%Creset %s%Creset' --date=short"
   lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-	logs = log --show-signature
-	cis = commit -S
+  logs = log --show-signature
+  cis = commit -S
   alias-master-as-main = !git symbolic-ref refs/heads/main refs/heads/master && git symbolic-ref refs/remotes/origin/main refs/remotes/origin/master && git switch main
 [color]
-	ui = true
-	diff = true
+  ui = true
+  diff = true
 [commit]
-	gpgsign = true
+  gpgsign = true
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [credential "https://github.com"]
-	helper = !/opt/homebrew/bin/gh auth git-credential
+  helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[log]
-	mailmap = true
-[mailmap]
-	file = ~/.mailmap
-[push]
-	default = simple
-	autoSetupRemote = true
-
 [diff]
-	wsErrorHighlight = all
-[init]
-	defaultBranch = master
-[pull]
-	rebase = true
+  wsErrorHighlight = all
 [fetch]
-	prune = true
+  prune = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [gpg]
-	program = gpg2
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[init]
+  defaultBranch = master
+[log]
+  mailmap = true
+[mailmap]
+  file = ~/.mailmap
+[pull]
+  rebase = true
+[push]
+  autoSetupRemote = true
+  default = simple
