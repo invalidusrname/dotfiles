@@ -26,7 +26,7 @@ brew 'gh'
 # text
 cask 'espanso'
 cask 'rectangle-pro'
-brew 'joplin'
+cask 'joplin'
 brew 'neovim'
 cask 'sublime-text'
 
