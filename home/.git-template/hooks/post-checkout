@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+EMAIL=$(git config user.email)
+WORKING_DIR=pwd
+
+if [[ "$EMAIL" == "" ]]; then
+    if [[ "$WORKING_DIR" == *"dev/work/"* ]]; then
+        echo "setting username and email for work"
+        git config user.name "Matt McMahand"
+    	git config user.email "matt@nomadhealth.com"
+    elif [[ "$WORKING_DIR" == *"dev/play/"* ]]; then
+        echo "setting username and email for play"
+        git config user.name "Matt McMahand"
+    	git config user.email "matt@invalid8.com"
+    fi
+else
+    echo "not setting username and email"
+fi

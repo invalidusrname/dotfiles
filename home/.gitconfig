@@ -1,17 +1,17 @@
 [user]
   name = Matt McMahand
-  email = matt@invalid8.com
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICd5yX5PSAsUi7D7Hz6eZah1TCRVHFaeHb2ZOR/2rLrW
+  useConfigOnly = true
 [alias]
-  l = "!. ~/.githelpers && pretty_git_log"
-  lw = "log --since='last week' --until='last sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
-  lm = "log --author='McMahand' --since='last month' --until='today' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
-  cw = "log --author='McMahand' --since='this monday' --until='this sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
-  td = "log --author='McMahand' --after='yesterday' --format='%Cgreen%ad%Creset %s%Creset' --date=short"
-  lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-  logs = log --show-signature
-  cis = commit -S
   alias-master-as-main = !git symbolic-ref refs/heads/main refs/heads/master && git symbolic-ref refs/remotes/origin/main refs/remotes/origin/master && git switch main
+  cis = commit -S
+  cw = "log --author='McMahand' --since='this monday' --until='this sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
+  l = "!. ~/.githelpers && pretty_git_log"
+  lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+  lm = "log --author='McMahand' --since='last month' --until='today' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
+  logs = log --show-signature
+  lw = "log --since='last week' --until='last sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
+  td = "log --author='McMahand' --after='yesterday' --format='%Cgreen%ad%Creset %s%Creset' --date=short"
 [color]
   ui = true
   diff = true
@@ -28,15 +28,16 @@
   prune = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+  smudge = git-lfs smudge -- %f
 [gpg]
   format = ssh
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [init]
   defaultBranch = master
+	templateDir = /Users/matt/.git-template
 [log]
   mailmap = true
 [mailmap]
@@ -44,5 +45,5 @@
 [pull]
   rebase = true
 [push]
-  default = simple
   autoSetupRemote = true
+  default = simple
