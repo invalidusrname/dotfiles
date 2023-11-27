@@ -6,6 +6,9 @@ charset = utf-8
 trim_trailing_whitespace = true
 indent_style = space
 
+[*.js]
+indent_size = 2
+
 [*.py]
 indent_size = 4
 
