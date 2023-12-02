@@ -23,6 +23,8 @@ alias gd='git diff --color'
 alias gst='git status'
 alias g4r='git-p4 rebase'
 alias g4s='git-p4 submit'
+alias gitme="git config user.email '$GIT_PERSONAL_EMAIL'; git config user.name '$GIT_NAME'"
+alias gitwork="git config user.email '$GIT_WORK_EMAIL'; git config user.name '$GIT_NAME'"
 
 alias r='ruby'
 

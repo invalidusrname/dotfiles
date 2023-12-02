@@ -2,6 +2,10 @@ if [ -r $HOME/.bash_git ]; then
   source $HOME/.bash_git
 fi
 
+if [ -r $HOME/.private_vars ]; then
+  source $HOME/.private_vars
+fi
+
 if [ -r $HOME/.custom_functions ]; then
   source $HOME/.custom_functions
 fi
@@ -12,10 +16,6 @@ fi
 
 if [ -r $HOME/.custom_aliases ]; then
   source $HOME/.custom_aliases
-fi
-
-if [ -r $HOME/.private_vars ]; then
-  source $HOME/.private_vars
 fi
 
 # OSX specific

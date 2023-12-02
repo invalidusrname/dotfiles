@@ -27,7 +27,6 @@ else
   echo '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 fi
 
-export PATH="/usr/local/mysql/bin/:./bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
@@ -39,12 +38,6 @@ fi
 # aliases
 alias dp="cd ~/Desktop"
 
-# mysql
-alias mysqlstart='sudo /usr/local/bin/mysqld_safe &'
-alias mysqlstop='/usr/local/bin/mysqladmin -u root -p shutdown'
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -75,5 +68,10 @@ if [ -f $ONE_PASSWORD_OP_PLUGINS ]; then
   source $ONE_PASSWORD_OP_PLUGINS
 fi
 
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" || true
+
+export PATH="./bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 export GPG_TTY=$(tty)
