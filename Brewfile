@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
+tap 'hashicorp/tap'
 
 # essential
 cask '1password'
@@ -20,8 +21,12 @@ brew 'wget'
 # development
 brew 'pre-commit'
 brew 'gh'
+brew 'hashicorp/tap/terraform'
 # brew 'kubernetes-cli', link: false
 # brew 'pinentry-mac'
+
+# postgresql development headers
+brew 'libpq'
 
 # text
 cask 'espanso'
