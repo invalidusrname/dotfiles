@@ -9,6 +9,7 @@ cask '1password-cli'
 cask 'firefox'
 cask 'google-chrome'
 cask 'iterm2'
+cask 'omnifocus'
 cask 'private-internet-access'
 
 # utilities

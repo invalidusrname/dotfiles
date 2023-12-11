@@ -125,6 +125,15 @@
             "appdir": "/Applications"
           }
         }
+      },
+      "omnifocus": {
+        "version": "3.15.4",
+        "options": {
+          "full_name": "omnifocus",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
       }
     },
     "brew": {
