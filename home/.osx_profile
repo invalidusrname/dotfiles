@@ -60,6 +60,10 @@ if [ -d $HOMEBREW_PREFIX ]; then
   if [ -f $HOMEBREW_PREFIX/libpq/bin ]; then
     export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
   fi
+
+  if [ -f $HOMEBREW_PREFIX/bin/terraform ]; then
+    complete -C /opt/homebrew/bin/terraform terraform
+  fi
 fi
 
 export ONE_PASSWORD_OP_PLUGINS="${HOME}/.config/op/plugins.sh"
@@ -68,7 +72,7 @@ if [ -f $ONE_PASSWORD_OP_PLUGINS ]; then
   source $ONE_PASSWORD_OP_PLUGINS
 fi
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" || true
+test -e "${HOME}/.local/bin/iterm2_shell_integration.bash" && source "${HOME}/.local/bin/iterm2_shell_integration.bash" || true
 
 export PATH="./bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"

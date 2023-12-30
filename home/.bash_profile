@@ -36,3 +36,6 @@ export WASMTIME_HOME=$HOME/.wasmtime
 complete -C /usr/local/bin/vault vault
 
 export PATH="$WASMTIME_HOME/bin:$HOME/.local/bin:$PATH"
+
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" || true
