@@ -53,9 +53,9 @@ if [ -d $HOMEBREW_PREFIX ]; then
     . $HOMEBREW_PREFIX/etc/bash_completion
   fi
 
-  if [ -f $HOMEBREW_PREFIX/etc/bash_completion.d/limactl ]; then
-    . $HOMEBREW_PREFIX/etc/bash_completion.d/limactl
-  fi
+  for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+  done
 
   if [ -f $HOMEBREW_PREFIX/libpq/bin ]; then
     export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
