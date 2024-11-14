@@ -22,6 +22,7 @@ brew 'wget'
 # development
 brew 'pre-commit'
 brew 'gh'
+brew 'mise'
 brew 'hashicorp/tap/terraform'
 # brew 'kubernetes-cli', link: false
 # brew 'pinentry-mac'
@@ -41,6 +42,14 @@ brew 'neofetch'
 brew 'ffmpeg'
 # cask 'transmission'
 # cask 'transmission-remote-gui'
+
+# ruby
+
+brew 'autoconf'
+brew 'gmp'
+brew 'libyaml'
+brew 'openssl@3'
+brew 'readline'
 
 # work related
 cask 'google-cloud-sdk'
