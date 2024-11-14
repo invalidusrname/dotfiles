@@ -1,4 +1,5 @@
 # add key to remote server
+
 function authme {
   ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_rsa.pub
 }
@@ -177,9 +178,9 @@ function dcor() {
   fi
 
   if [ -f ${OVERRIDE_FILE} ]; then
-    docker-compose -f ${COMPOSE_FILE} -f ${OVERRIDE_FILE} run $SERVICE $CMD
+    docker compose -f ${COMPOSE_FILE} -f ${OVERRIDE_FILE} run --rm $SERVICE $CMD
   elif [ -f $COMPOSE_FILE ]; then
-    docker-compose -f ${COMPOSE_FILE} run $SERVICE $CMD
+    docker compose -f ${COMPOSE_FILE} run --rm $SERVICE $CMD
   else
     echo "no ${COMPOSE_FILE} file found"
   fi

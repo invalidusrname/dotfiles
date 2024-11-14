@@ -8,24 +8,16 @@ if [ -f /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
   export HOMEBREW_BASH_COMPLETION=$HOMEBREW_PREFIX/etc/bash_completion.d/brew
-  export HOMEBREW_ASDF=$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
-  export HOMEBREW_ASDF_COMPLETION=$HOMEBREW_PREFIX/opt/asdf/etc/bash_completion.d/asdf.bash
 
   if [ -f $HOMEBREW_BASH_COMPLETION ]; then
     . $HOMEBREW_BASH_COMPLETION
   fi
 
-  if [ -f $HOMEBREW_ASDF ]; then
-    . $HOMEBREW_ASDF
-  fi
-
-  if [ -f $HOMEBREW_ASDF_COMPLETION ]; then
-    . $HOMEBREW_ASDF_COMPLETION
-  fi
 else
   echo "Homebrew not installed. Install with: "
   echo '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 fi
+
 
 
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
@@ -45,9 +37,6 @@ if [ -d $HOMEBREW_PREFIX ]; then
   if [[ -r $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]]; then
     . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
   fi
-
-  . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
-  . $HOMEBREW_PREFIX/opt/asdf/etc/bash_completion.d/asdf.bash
 
   if [ -f $HOMEBREW_PREFIX/etc/bash_completion ]; then
     . $HOMEBREW_PREFIX/etc/bash_completion
@@ -73,6 +62,10 @@ if [ -f $ONE_PASSWORD_OP_PLUGINS ]; then
 fi
 
 test -e "${HOME}/.local/bin/iterm2_shell_integration.bash" && source "${HOME}/.local/bin/iterm2_shell_integration.bash" || true
+
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.bash 2>/dev/null || :
+
 
 export PATH="./bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"

@@ -57,13 +57,14 @@ alias p4dm="p4d | $EDITOR"
 alias p4s="p4 sync"
 
 # docker
-alias dc="docker-compose"
+alias dc="docker compose"
 alias dcb="dc build"
 alias dcd="dc down"
 alias dcu="dc up"
 alias dcsh="dc exec app /bin/sh"
 alias dcs="dc exec web /bin/bash"
 alias dcr="dc run app /bin/bash"
+alias dcp="docker container prune"
 alias dptw="dc run web ptw"
 
 alias dev="cd ~/dev"
@@ -90,3 +91,7 @@ alias ghu="brew upgrade gh"
 ## vnc
 alias um580_tunnel="ssh -vL 59000:localhost:5901 -C -N -l matt um580"
 alias um690_tunnel="ssh -vL 59001:localhost:5902 -C -N -l matt um690"
+
+# jdownloader
+alias airsync="rsync -rtv air:/Users/mmcmahand/Downloads/jdownloader/done/ ~/Downloads/misc/todo/done/"
+alias minisync="rsync -rtv mini:/Users/mmcmahand/Downloads/jdownloader/done/ ~/Downloads/misc/todo/done/"

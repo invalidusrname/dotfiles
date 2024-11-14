@@ -24,4 +24,4 @@ export RUBYOPT="-W0" # or "-W:no-deprecated -W:no-experimental"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # google cloud
-export CLOUDSDK_PYTHON=$HOME/.asdf/shims/python
+export CLOUDSDK_PYTHON=$HOME/.local/share/mise/shims/python

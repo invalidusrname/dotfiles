@@ -1,0 +1,5 @@
+[settings]
+experimental = true
+
+[tools]
+"npm:prettier" = "latest"

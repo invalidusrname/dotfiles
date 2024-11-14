@@ -25,17 +25,10 @@ fi
 
 if [[ `uname` == "Linux" ]]; then
   eval `dircolors $HOME/dev/play/gnome-terminal-colors-solarized/dircolors`
-  . $HOME/.asdf/asdf.sh
-  . $HOME/.asdf/completions/asdf.bash
 fi
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-export WASMTIME_HOME=$HOME/.wasmtime
-
 complete -C /usr/local/bin/vault vault
 
-export PATH="$WASMTIME_HOME/bin:$HOME/.local/bin:$PATH"
-
-
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" || true
+eval "$(~/.local/bin/mise activate bash)"
