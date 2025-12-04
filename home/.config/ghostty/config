@@ -1,1 +1,5 @@
 command=/opt/homebrew/bin/bash --login
+window-width=200
+window-height=50
+window-position-x=150
+window-position-y=225
