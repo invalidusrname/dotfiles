@@ -1,6 +1,5 @@
 [user]
   name = Matt McMahand
-  email = matt@invalid8.com
   useConfigOnly = true
 [alias]
   alias-master-as-main = !git symbolic-ref refs/heads/main refs/heads/master && git symbolic-ref refs/remotes/origin/main refs/remotes/origin/master && git switch main
