@@ -74,13 +74,8 @@ alias ss="play; cd invalidusrname/scraper"
 alias blog="cd ~/dev/play/mm-blog"
 
 # work related
-alias nomad="cd ~/dev/work/nomadhealth"
-alias admin="nomad; cd nomad-admin"
-alias nf="nomad; cd nomad-flask"
-alias mono="nomad; cd nomad-mono"
+alias debtbook="cd ~/dev/work/debtbook"
 
-alias dev-bastion="gcloud compute ssh dev-bastion-host --project dev-host-environment-4d3e --zone us-east1-c"
-alias prod-bastion="gcloud compute ssh prod-bastion-host --project prod-host-environment-2a5c --zone us-east1-c"
 alias ms="make start"
 
 ## github

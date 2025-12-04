@@ -1,0 +1,8 @@
+[user]
+  name = Matt McMahand
+  email = matt@invalid8.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICd5yX5PSAsUi7D7Hz6eZah1TCRVHFaeHb2ZOR/2rLrW
+
+[init]
+  defaultBranch = master
+  templateDir = /Users/matt/.git-template

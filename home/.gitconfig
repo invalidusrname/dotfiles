@@ -1,6 +1,6 @@
 [user]
   name = Matt McMahand
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICd5yX5PSAsUi7D7Hz6eZah1TCRVHFaeHb2ZOR/2rLrW
+  email = matt@invalid8.com
   useConfigOnly = true
 [alias]
   alias-master-as-main = !git symbolic-ref refs/heads/main refs/heads/master && git symbolic-ref refs/remotes/origin/main refs/remotes/origin/master && git switch main
@@ -11,6 +11,7 @@
   lm = "log --author='McMahand' --since='last month' --until='today' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
   logs = log --show-signature
   lw = "log --since='last week' --until='last sun' --format='%Cgreen%ad%Creset %s%Creset' --no-merges --date=short"
+  mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
   td = "log --author='McMahand' --after='yesterday' --format='%Cgreen%ad%Creset %s%Creset' --date=short"
 [color]
   ui = true
@@ -19,6 +20,10 @@
   gpgsign = true
 [core]
   excludesfile = ~/.gitignore
+[credential "https://github.com"]
+  helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+
 [credential "https://github.com"]
   helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
@@ -37,7 +42,6 @@
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [init]
   defaultBranch = master
-	templateDir = /Users/matt/.git-template
 [log]
   mailmap = true
 [mailmap]
@@ -47,3 +51,9 @@
 [push]
   autoSetupRemote = true
   default = simple
+
+[includeIf "gitdir:~/dev/work/debtbook/"]
+	path = ~/.gitconfig-debtbook
+
+[includeIf "gitdir:~/dev/play/"]
+	path = ~/.gitconfig-personal
