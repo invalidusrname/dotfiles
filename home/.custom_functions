@@ -124,35 +124,6 @@ clean_branches() {
   git branch -vv | grep "origin/.*: gone]" | awk '{print $1}' | xargs git branch -D
 }
 
-function deploy() {
-	REPO=$1
-	TO_ENV=$2
-
-	if [ "$REPO" == "" ]; then
-		echo "need repo_name as 1st arg"
-    return
-	fi
-
-	if [ "$TO_ENV" == "" ]; then
-		echo "need environment as 2nd arg"
-    return
-	fi
-
-	cd ~/dev/work/nomad/${REPO}
-
-	SHA=$(git rev-parse --short HEAD | cut -c1-7)
-	BRANCH=$(git branch --show-current | tr "/" "-")
-	IMG="gcr.io/nomad-prod-193619/${REPO}:latest"
-  TAG="${BRANCH}-${SHA}-SNAPSHOT"
-
-	cd ../nomad-env
-	git stash && git checkout master
-
-	echo "running: nomad-env deploy --pr --environment $TO_ENV --image $IMG --tag $TAG"
-
-	nomad-env deploy --pr --environment $TO_ENV --image $IMG --tag $TAG
-}
-
 function dcor() {
   if [[ $1 != "" ]]; then
     SERVICE="$1"
