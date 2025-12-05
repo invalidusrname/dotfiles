@@ -15,17 +15,11 @@
 [color]
   ui = true
   diff = true
-[commit]
-  gpgsign = true
 [core]
   excludesfile = ~/.gitignore
+[credential "https://gist.github.com"]
 [credential "https://github.com"]
   helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-
-[credential "https://github.com"]
-  helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
 [diff]
   wsErrorHighlight = all
 [fetch]
