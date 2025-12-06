@@ -1,5 +1,9 @@
 [settings]
 experimental = true
+idiomatic_version_file_enable_tools = ["node", "ruby", "python"]
 
 [tools]
 "npm:prettier" = "latest"
+pnpm = "latest"
+python = "3.13.0"
+ruby = "3.4.7"

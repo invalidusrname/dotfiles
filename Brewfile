@@ -34,25 +34,32 @@ brew 'libpq'
 cask 'espanso'
 cask 'rectangle-pro'
 cask 'joplin'
-brew 'neovim'
 cask 'sublime-text'
 
 # misc
-brew 'neofetch'
+brew 'fastfetch'
 brew 'ffmpeg'
 # cask 'transmission'
 # cask 'transmission-remote-gui'
 
 # ruby
-
 brew 'autoconf'
 brew 'gmp'
 brew 'libyaml'
 brew 'openssl@3'
 brew 'readline'
 
+# neovim
+brew 'neovim'
+brew 'ast-grep'
+brew 'fd'
+brew 'fzf'
+brew 'jesseduffield/lazygit/lazygit'
+brew 'ripgrep'
+
 # work related
 cask 'google-cloud-sdk'
 brew 'sops'
 cask 'slack'
 cask 'zoom'
+

@@ -115,8 +115,22 @@ function pv() {
   done
 }
 
+function local_env() {
+    LOCAL_FILE=".env.local"
+
+    if [ -f "$LOCAL_FILE" ]; then
+      set -a;
+      source $LOCAL_FILE;
+      set +a;
+      echo "loaded $LOCAL_FILE"
+    else
+      echo "unable to load $LOCAL_FILE"
+    fi
+  }
+
 function update_ruby_versions() {
-  cd $HOME/.rbenv/plugins/ruby-build && git pull && cd -
+  mise cache clean
+  mise ls-remote ruby
 }
 
 clean_branches() {
@@ -124,11 +138,40 @@ clean_branches() {
   git branch -vv | grep "origin/.*: gone]" | awk '{print $1}' | xargs git branch -D
 }
 
-function dcor() {
+function deploy() {
+	REPO=$1
+	TO_ENV=$2
+
+	if [ "$REPO" == "" ]; then
+		echo "need repo_name as 1st arg"
+    return
+	fi
+
+	if [ "$TO_ENV" == "" ]; then
+		echo "need environment as 2nd arg"
+    return
+	fi
+
+	cd ~/dev/work/nomad/${REPO}
+
+	SHA=$(git rev-parse --short HEAD | cut -c1-7)
+	BRANCH=$(git branch --show-current | tr "/" "-")
+	IMG="gcr.io/nomad-prod-193619/${REPO}:latest"
+  TAG="${BRANCH}-${SHA}-SNAPSHOT"
+
+	cd ../nomad-env
+	git stash && git checkout master
+
+	echo "running: nomad-env deploy --pr --environment $TO_ENV --image $IMG --tag $TAG"
+
+	nomad-env deploy --pr --environment $TO_ENV --image $IMG --tag $TAG
+}
+
+function dce() {
   if [[ $1 != "" ]]; then
     SERVICE="$1"
   else
-    SERVICE="web"
+    SERVICE="app"
   fi
 
   if [[ $2 != "" ]]; then
@@ -149,8 +192,49 @@ function dcor() {
   fi
 
   if [ -f ${OVERRIDE_FILE} ]; then
+    FULL_CMD="docker compose -f ${COMPOSE_FILE} -f ${OVERRIDE_FILE} exec $SERVICE $CMD"
+    echo $FULL_CMD
+    docker compose -f ${COMPOSE_FILE} -f ${OVERRIDE_FILE} exec $SERVICE $CMD
+  elif [ -f $COMPOSE_FILE ]; then
+    FULL_CMD="docker compose -f ${COMPOSE_FILE} exec $SERVICE $CMD"
+    echo $FULL_CMD
+    docker compose -f ${COMPOSE_FILE} exec $SERVICE $CMD
+  else
+    echo "no ${COMPOSE_FILE} file found"
+  fi
+}
+
+function dcor() {
+  if [[ $1 != "" ]]; then
+    SERVICE="$1"
+  else
+    SERVICE="app"
+  fi
+
+  if [[ $2 != "" ]]; then
+    CMD="$2"
+  else
+    CMD="/bin/bash"
+  fi
+
+  COMPOSE_FILE="docker-compose.yml"
+  OVERRIDE_FILE="docker-compose.override.yml"
+
+  if [ -f "docker-compose.yaml" ]; then
+    COMPOSE_FILE="docker-compose.yaml"
+    OVERRIDE_FILE="docker-compose.override.yaml"
+  elif [ -f "compose.yaml" ]; then
+    COMPOSE_FILE="compose.yaml"
+    OVERRIDE_FILE="compose.override.yaml"
+  fi
+
+  if [ -f ${OVERRIDE_FILE} ]; then
+    DEBUGGING="docker compose -f ${COMPOSE_FILE} -f ${OVERRIDE_FILE} run --rm $SERVICE $CMD"
+    echo $DEBUGGING
     docker compose -f ${COMPOSE_FILE} -f ${OVERRIDE_FILE} run --rm $SERVICE $CMD
   elif [ -f $COMPOSE_FILE ]; then
+    DEBUGGING="docker compose -f ${COMPOSE_FILE} run --rm $SERVICE $CMD"
+    echo $DEBUGGING
     docker compose -f ${COMPOSE_FILE} run --rm $SERVICE $CMD
   else
     echo "no ${COMPOSE_FILE} file found"
@@ -185,3 +269,9 @@ function pyclean () {
   find . -type f -name "*.py[co]" -delete
   find . -type d -name "__pycache__" -exec rm -rf {} +
 }
+
+
+function gitsearch() {
+    git grep "$1" $(git branch -a --format='%(refname:short)')
+}
+

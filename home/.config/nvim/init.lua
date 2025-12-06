@@ -1,10 +1,8 @@
-require("packer-config")
-require("mason-config")
-require("nvim-tree-config")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
 
-require("settings")
-require("mappings")
-require("colorschemes-config.solarized")
-
--- Prepend mise shims to PATH
-vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
+vim.g.mapleader = " "

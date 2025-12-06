@@ -1,0 +1,13 @@
+directory: /Volumes/bertha-downloads/beets/music/
+library: /Volumes/bertha-downloads/beets/data/musiclibrary.db
+plugins: web the
+
+paths:
+    default: "%the{$albumartist}/$original_year-$original_month-$original_day - $album%aunique{} [%upper{$albumtype}] (%upper{$format})/$disc-$track - $title ($bitrate)"
+    singleton: "#Non-Album/$artist/$title"
+    comp: "#Compilations/%the{$albumartist}/$original_year-$original_month - $album%aunique{} [%upper{$albumtype}] (%upper{$format})/$disc-$track - $title ($bitrate)"
+
+embedart:
+    auto: no
+per_disc_numbering: yes
+threaded: yes

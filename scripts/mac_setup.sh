@@ -4,8 +4,7 @@ if ! command -v brew &> /dev/null; then
  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-#curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
-#brew bundle install --file=~/.homesick/repos/dotfiles/Brewfile
+# brew bundle install --file=~/.homesick/repos/dotfiles/Brewfile
 
 if ! command -v mise &> /dev/null
 then
@@ -13,6 +12,7 @@ then
   brew install iterm2 1password mise
 fi
 
-
-
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+# curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | bash
+# curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git

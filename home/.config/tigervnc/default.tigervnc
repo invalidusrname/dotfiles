@@ -1,0 +1,5 @@
+TigerVNC Configuration file Version 1.0
+
+ServerName=um690.local
+SecurityTypes=None,VncAuth,RA2ne,RA2ne_256,Plain,DH,MSLogonII,TLSNone,TLSVnc,TLSPlain,X509None,X509Vnc,X509Plain,RA2,RA2_256
+NoJPEG=on

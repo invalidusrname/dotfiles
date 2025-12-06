@@ -20,7 +20,8 @@ alias q exit
 # log Active Record SQL to STDOUT
 if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
   require 'logger'
-  RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
+
+  RAILS_DEFAULT_LOGGER = Logger.new($stdout)
 end
 
 def me

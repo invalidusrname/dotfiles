@@ -18,8 +18,9 @@
 [core]
   excludesfile = ~/.gitignore
 [credential "https://gist.github.com"]
-[credential "https://github.com"]
   helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
 [diff]
   wsErrorHighlight = all
 [fetch]
@@ -44,9 +45,11 @@
 [push]
   autoSetupRemote = true
   default = simple
-
 [includeIf "gitdir:~/dev/work/debtbook/"]
 	path = ~/.gitconfig-debtbook
 
 [includeIf "gitdir:~/dev/play/"]
 	path = ~/.gitconfig-personal
+
+[remote "origin"]
+	prune = true

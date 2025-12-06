@@ -6,18 +6,10 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 if [ -f /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
-
-  export HOMEBREW_BASH_COMPLETION=$HOMEBREW_PREFIX/etc/bash_completion.d/brew
-
-  if [ -f $HOMEBREW_BASH_COMPLETION ]; then
-    . $HOMEBREW_BASH_COMPLETION
-  fi
-
 else
   echo "Homebrew not installed. Install with: "
   echo '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 fi
-
 
 
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
@@ -34,24 +26,17 @@ alias dp="cd ~/Desktop"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [ -d $HOMEBREW_PREFIX ]; then
-  if [[ -r $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]]; then
-    . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
-  fi
 
   if [ -f $HOMEBREW_PREFIX/etc/bash_completion ]; then
     . $HOMEBREW_PREFIX/etc/bash_completion
   fi
 
-  for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
-  done
+  #for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+  #    [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+  #done
 
   if [ -f $HOMEBREW_PREFIX/libpq/bin ]; then
     export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
-  fi
-
-  if [ -f $HOMEBREW_PREFIX/bin/terraform ]; then
-    complete -C /opt/homebrew/bin/terraform terraform
   fi
 fi
 

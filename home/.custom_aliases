@@ -1,6 +1,9 @@
 
 # common aliases
-alias vi='vim'
+alias nv='nvim'
+alias vim=nv
+alias vi=nv
+
 alias c='clear'
 alias l="ls -CaGpltr"
 alias ls="ls -Gl"
@@ -11,6 +14,7 @@ alias myip='curl -s icanhazip.com'
 alias tm='tmux -u -2'
 
 # git
+alias gsp="git stash; git pull; git stash apply"
 alias gl='git pull'
 alias glog='git log --stat -u --color'
 alias gp='git push'
@@ -46,7 +50,7 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 # util
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 alias uruby="asdf plugin update ruby; echo 'TO INSTALL: asdf install ruby X.X.X'"
-#alias kamal="docker run -it --rm -v '${PWD}:/workdir' -v '/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock' -e SSH_AUTH_SOCK='/run/host-services/ssh-auth.sock' -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/basecamp/kamal:latest"
+#alias kamal='docker run -it --rm -v "${PWD}:/workdir" -v "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock" -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/basecamp/kamal:latest'
 
 # cucumber
 alias rf='rake features'
@@ -74,11 +78,12 @@ alias work="cd ~/dev/work"
 
 alias ss="play; cd invalidusrname/scraper"
 alias blog="cd ~/dev/play/mm-blog"
+alias tt="cd ~/dev/play/invalidusrname/ttrss"
 
 # work related
 alias debtbook="cd ~/dev/work/debtbook"
-
 alias ms="make start"
+alias assume=". assume"
 
 ## github
 
@@ -89,6 +94,7 @@ alias ghu="brew upgrade gh"
 alias um580_tunnel="ssh -vL 59000:localhost:5901 -C -N -l matt um580"
 alias um690_tunnel="ssh -vL 59001:localhost:5902 -C -N -l matt um690"
 
-# jdownloader
+# rsync
 alias airsync="rsync -rtv air:/Users/mmcmahand/Downloads/jdownloader/done/ ~/Downloads/misc/todo/done/"
 alias minisync="rsync -rtv mini:/Users/mmcmahand/Downloads/jdownloader/done/ ~/Downloads/misc/todo/done/"
+

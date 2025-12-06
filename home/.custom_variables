@@ -25,3 +25,9 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # google cloud
 export CLOUDSDK_PYTHON=$HOME/.local/share/mise/shims/python
+
+
+# AWS
+AWS_DEFAULT_REGION=us-east-1
+AWS_REGION=us-east-1
+
