@@ -75,6 +75,7 @@ alias dev="cd ~/dev"
 alias play="cd ~/dev/play"
 alias work="cd ~/dev/work"
 
+alias debt="cd ~/dev/work/debtbook"
 
 alias ss="play; cd invalidusrname/scraper"
 alias blog="cd ~/dev/play/mm-blog"
