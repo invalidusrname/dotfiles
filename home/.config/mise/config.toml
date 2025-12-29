@@ -6,4 +6,4 @@ idiomatic_version_file_enable_tools = ["node", "ruby", "python"]
 "npm:prettier" = "latest"
 pnpm = "latest"
 python = "3.13.0"
-ruby = "3.4.7"
+ruby = "4.0.0"
