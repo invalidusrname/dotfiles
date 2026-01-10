@@ -275,3 +275,10 @@ function gitsearch() {
     git grep "$1" $(git branch -a --format='%(refname:short)')
 }
 
+function glab-issue-feature() {
+  local issue_num=$1
+  local issue_title=$(glab issue view $issue_num --output json | jq -r .title | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z1-9]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+  echo $local_issue_title
+  git checkout -b "feature/${issue_num}-${issue_title}"
+}
+
