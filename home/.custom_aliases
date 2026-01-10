@@ -49,8 +49,6 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
 # util
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
-alias uruby="asdf plugin update ruby; echo 'TO INSTALL: asdf install ruby X.X.X'"
-#alias kamal='docker run -it --rm -v "${PWD}:/workdir" -v "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock" -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/basecamp/kamal:latest'
 
 # cucumber
 alias rf='rake features'
@@ -75,19 +73,17 @@ alias dev="cd ~/dev"
 alias play="cd ~/dev/play"
 alias work="cd ~/dev/work"
 
-alias debt="cd ~/dev/work/debtbook"
 
 alias ss="play; cd invalidusrname/scraper"
 alias blog="cd ~/dev/play/mm-blog"
 alias tt="cd ~/dev/play/invalidusrname/ttrss"
 
 # work related
-alias debtbook="cd ~/dev/work/debtbook"
+alias debt="cd ~/dev/work/debtbook"
 alias ms="make start"
 alias assume=". assume"
 
 ## github
-
 alias ghpr="gh pr checkout"
 alias ghu="brew upgrade gh"
 
