@@ -247,9 +247,31 @@ function gitsearch() {
 }
 
 function glab-issue-feature() {
+  local BRANCH_LIMIT=120
   local issue_num=$1
-  local issue_title=$(glab issue view $issue_num --output json | jq -r .title | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z1-9]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
-  echo $local_issue_title
-  git checkout -b "feature/${issue_num}-${issue_title}"
+
+  if [ -z "$issue_num" ]; then
+    echo "Usage: glab-issue-feature <issue_num>"
+    return 1
+  fi
+
+  local issue_title=$(glab issue view "$issue_num" --output json | jq -r .title | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+
+  if [ -z "$issue_title" ]; then
+    echo "Error: Could not fetch issue title."
+    return 1
+  fi
+
+  local branch_prefix="feature/${issue_num}-"
+  local full_branch="${branch_prefix}${issue_title}"
+
+  if [ ${#full_branch} -ge $BRANCH_LIMIT ]; then
+    local max_title_len=$((BRANCH_LIMIT - 1 - ${#branch_prefix}))
+    issue_title="${issue_title:0:${max_title_len}}"
+    issue_title=$(echo "$issue_title" | sed 's/-*$//')  # Remove trailing hyphens after truncate
+    full_branch="${branch_prefix}${issue_title}"
+  fi
+
+  git checkout -b "$full_branch"
 }
 
