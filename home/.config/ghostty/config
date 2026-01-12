@@ -1,3 +1,4 @@
+auto-update-channel = tip
 command=/opt/homebrew/bin/bash --login
 window-width=200
 window-height=50
