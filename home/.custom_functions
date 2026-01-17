@@ -116,7 +116,12 @@ function pv() {
 }
 
 function local_env() {
-    LOCAL_FILE=".env.local"
+    LOCAL_FILE=$1
+    DEFAULT_LOCAL_FILE=".env.local"
+
+    if [ -z "$LOCAL_FILE" ]; then
+      LOCAL_FILE=$DEFAULT_LOCAL_FILE
+    fi
 
     if [ -f "$LOCAL_FILE" ]; then
       set -a;
@@ -126,7 +131,8 @@ function local_env() {
     else
       echo "unable to load $LOCAL_FILE"
     fi
-  }
+
+}
 
 function update_ruby_versions() {
   mise cache clean

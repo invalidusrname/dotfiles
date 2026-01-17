@@ -1,16 +1,86 @@
 #!/usr/bin/env bash
 
-EMAIL=$(git config user.email)
-WORKING_DIR=pwd
+configure_git_user() {
+    local email
+    local working_dir="${PWD}"
 
-if [[ "$EMAIL" == "" ]]; then
-    if [[ "$WORKING_DIR" == *"dev/work/debtbook"* ]]; then
-        echo "setting username and email for work"
-        git config user.name "Matt McMahand"
-    	git config user.email "matt.mcmahand@debtbook.com"
-    elif [[ "$WORKING_DIR" == *"dev/play/"* ]]; then
-        echo "setting username and email for play"
-        git config user.name "Matt McMahand"
-    	git config user.email "matt@invalid8.com"
+    email="$(git config user.email)" || {
+        echo "Error: Failed to get current Git email." >&2
+        return 1
+    }
+
+    if [[ -z "${email}" ]]; then
+        if [[ "${working_dir}" == */dev/work/debtbook/* ]]; then
+            echo "Setting username and email for work"
+
+            git config user.name "Matt McMahand" || {
+                echo "Error: Failed to set Git user.name." >&2
+                return 1
+            }
+            git config user.email "matt.mcmahand@debtbook.com" || {
+                echo "Error: Failed to set Git user.email." >&2
+                return 1
+            }
+        elif [[ "${working_dir}" == */dev/play/* ]]; then
+            echo "Setting username and email for play"
+
+            git config user.name "Matt McMahand" || {
+                echo "Error: Failed to set Git user.name." >&2
+                return 1
+            }
+            git config user.email "matt@invalid8.com" || {
+                echo "Error: Failed to set Git user.email." >&2
+                return 1
+            }
+        fi
     fi
+
+    return 0
+}
+
+# standardize the local primary branch to 'master'
+# set upstream to remote's HEAD
+standardize_branch() {
+    local current_branch
+    local remote_head=""
+
+    current_branch="$(git rev-parse --abbrev-ref HEAD)" || {
+        echo "Error: Failed to get current branch." >&2
+        return 1
+    }
+
+    if git remote | grep -q '^origin$'; then
+        remote_head="$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')" || {
+            echo "Error: Failed to get remote HEAD." >&2
+            return 1
+        }
+    fi
+
+    if [[ "${current_branch}" != "master" ]]; then
+        git branch -m master || {
+            echo "Error: Failed to rename branch to 'master'." >&2
+            return 1
+        }
+
+        if [[ -n "${remote_head}" ]]; then
+            git branch --set-upstream-to="origin/${remote_head}" master || {
+                echo "Error: Failed to set upstream for 'master'." >&2
+                return 1
+            }
+        fi
+    fi
+
+    return 0
+}
+
+prev_head="$1"
+new_head="$2"
+is_branch_checkout="$3"
+
+# Only run setup on the initial clone
+if [[ "${is_branch_checkout}" != "1" ]] || [[ "${prev_head}" != "0000000000000000000000000000000000000000" ]]; then
+    exit 0
 fi
+
+configure_git_user || exit 1
+standardize_branch || exit 1
