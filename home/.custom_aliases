@@ -80,6 +80,8 @@ alias tt="cd ~/dev/play/invalidusrname/ttrss"
 
 # work related
 alias debt="cd ~/dev/work/debtbook"
+alias debt-pull="git pull && docker compose run --rm api sh -c 'bundle install && bundle exec rails db:migrate'"
+
 alias ms="make start"
 alias assume=". assume"
 
