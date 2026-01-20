@@ -21,7 +21,7 @@ configure_git_user() {
                 echo "Error: Failed to set Git user.email." >&2
                 return 1
             }
-        elif [[ "${working_dir}" == */dev/play/* ]]; then
+        elif [[ "${working_dir}" == */dev/play/* || "${working_dir}" == */.homesick/repos/dotfiles/* ]]; then
             echo "Setting username and email for play"
 
             git config user.name "Matt McMahand" || {
