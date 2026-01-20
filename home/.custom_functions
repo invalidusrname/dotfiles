@@ -281,3 +281,15 @@ function glab-issue-feature() {
   git checkout -b "$full_branch"
 }
 
+
+function dmigrate() {
+  local service="${1:-api}"
+  docker compose run --rm "$service" sh -c "bundle install && bundle exec rails db:migrate"
+}
+
+function drun() {
+  local service="${1:-app}"
+  local cmd="${2:-/bin/bash}"
+  docker compose run --rm "$service" "$cmd"
+}
+
