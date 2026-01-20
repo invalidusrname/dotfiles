@@ -1,19 +1,19 @@
 require 'irb/completion'
-require 'irb/ext/save-history'
 require 'json'
-require 'prettyprint'
 require 'rubygems'
 
-begin
-  require 'awesome_print'
+gems = %w[awesome_print niceql prettyprint]
+
+gems.each do |gem_name|
+  require gem_name
 rescue LoadError
-  puts 'could not load awesome_print. install with: gem install awesome_print'
+  puts "could not load #{gem_name}. install with: gem install #{gem_name}"
 end
 
 ARGV.concat ['--readline', '--prompt-mode', 'simple']
 
 IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.config/irb/irb_save_history"
+IRB.conf[:HISTORY_FILE] = File.join(Dir.home, '.irb_history')
 
 alias q exit
 
@@ -36,4 +36,9 @@ end
 
 def pbpaste
   `pbpaste`
+end
+
+def nice(obj)
+  query = obj.respond_to?(:to_sql) ? obj.to_sql : obj
+  puts(Niceql::Prettifier.prettify_sql(query))
 end
