@@ -3,7 +3,7 @@ if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
 fi
 
 if [ -r $HOME/.bash_git ]; then
-  source $HOME/.bash_git
+ source $HOME/.bash_git
 fi
 
 if [ -r $HOME/.private_vars ]; then
@@ -33,4 +33,10 @@ fi
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-eval "$(~/.local/bin/mise activate bash --shims)"
+if command -v mise >/dev/null 2>&1; then
+  eval "$(~/.local/bin/mise activate bash --shims)"
+fi
+
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+fi
