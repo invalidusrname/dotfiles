@@ -17,5 +17,4 @@ Installs homesick, symlinks repo, and sets up symlinks
 
 ```
 ./script/mac_setup.sh
-./script/asdf_setup.sh
 ```
