@@ -19,21 +19,23 @@ if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
 fi
 
 
+
 # aliases
 alias dp="cd ~/Desktop"
 
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 if [ -d $HOMEBREW_PREFIX ]; then
+  for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+    [[ -r "$$   {COMPLETION}" ]] && source "   $${COMPLETION}"
+  done
 
   if [ -f $HOMEBREW_PREFIX/etc/bash_completion ]; then
     . $HOMEBREW_PREFIX/etc/bash_completion
   fi
 
-  #for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-  #    [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
-  #done
+  for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+  done
 
   if [ -f $HOMEBREW_PREFIX/libpq/bin ]; then
     export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
