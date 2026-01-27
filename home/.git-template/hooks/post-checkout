@@ -4,10 +4,7 @@ configure_git_user() {
     local email
     local working_dir="${PWD}"
 
-    email="$(git config user.email)" || {
-        echo "Error: Failed to get current Git email." >&2
-        return 1
-    }
+    email="$(git config user.email)"
 
     if [[ -z "${email}" ]]; then
         if [[ "${working_dir}" == */dev/work/debtbook/* ]]; then
@@ -82,5 +79,5 @@ if [[ "${is_branch_checkout}" != "1" ]] || [[ "${prev_head}" != "000000000000000
     exit 0
 fi
 
-configure_git_user || exit 1
-standardize_branch || exit 1
+configure_git_user
+standardize_branch
