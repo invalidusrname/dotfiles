@@ -43,6 +43,7 @@
   defaultBranch = master
 [log]
   mailmap = true
+  showSignature = true
 [mailmap]
   file = ~/.mailmap
 [pull]

@@ -10,25 +10,13 @@ configure_git_user() {
         if [[ "${working_dir}" == */dev/work/debtbook/* ]]; then
             echo "Setting username and email for work"
 
-            git config user.name "Matt McMahand" || {
-                echo "Error: Failed to set Git user.name." >&2
-                return 1
-            }
-            git config user.email "matt.mcmahand@debtbook.com" || {
-                echo "Error: Failed to set Git user.email." >&2
-                return 1
-            }
+            git config user.name "Matt McMahand"
+            git config user.email "matt.mcmahand@debtbook.com"
         elif [[ "${working_dir}" == */dev/play/* || "${working_dir}" == */.homesick/repos/dotfiles/* ]]; then
             echo "Setting username and email for play"
 
-            git config user.name "Matt McMahand" || {
-                echo "Error: Failed to set Git user.name." >&2
-                return 1
-            }
-            git config user.email "matt@invalid8.com" || {
-                echo "Error: Failed to set Git user.email." >&2
-                return 1
-            }
+            git config user.name "Matt McMahand"
+            git config user.email "matt@invalid8.com"
         fi
     fi
 
