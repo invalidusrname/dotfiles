@@ -51,11 +51,9 @@
 [push]
   autoSetupRemote = true
   default = simple
-[includeIf "gitdir:~/dev/work/debtbook/"]
-	path = ~/.gitconfig-debtbook
-
-[includeIf "gitdir:~/dev/play/"]
-	path = ~/.gitconfig-personal
-
 [remote "origin"]
-	prune = true
+  prune = true
+[includeIf "gitdir:~/dev/work/debtbook/"]
+  path = ~/.gitconfig-debtbook
+[includeIf "gitdir:~/dev/play/"]
+  path = ~/.gitconfig-personal

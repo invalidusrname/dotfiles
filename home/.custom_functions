@@ -293,3 +293,9 @@ function drun() {
   docker compose run --rm "$service" "$cmd"
 }
 
+function gitea_add_remote() {
+  REPO=$(basename $PWD)
+  git remote add gitea https://git.invalid8.com/invalidusrname/${REPO}.git
+  git push -u gitea master
+}
+
