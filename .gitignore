@@ -6,6 +6,7 @@ config/database.yml
 docker-compose.overrides.yml
 home/.config/configstore/nodemon.json
 home/.config/configstore/update-notifier-npm.json
+home/.config/gcli
 home/.config/gcloud/*
 home/.config/gh/hosts.yml
 home/.config/iterm2/AppSupport
