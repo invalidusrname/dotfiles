@@ -282,18 +282,42 @@ function glab-issue-feature() {
 }
 
 
-function dmigrate() {
-  local service="${1:-api}"
-  docker compose run --rm "$service" sh -c "bundle install && bundle exec rails db:migrate"
+: "${RAILS_SERVICE:=api}"
+: "${RUN_SERVICE:=api}"
+
+dc() {
+  docker compose "$@";
 }
 
-function drun() {
-  local service="${1:-app}"
-  local cmd="${2:-/bin/bash}"
-  docker compose run --rm "$service" "$cmd"
+dinstall() {
+  local service="${1:-$RAILS_SERVICE}"
+  dc run --rm "$service" bundle install --jobs 4 --retry 3
 }
 
-function gitea_add_remote() {
+dmigrate() {
+  dc run --rm "$RAILS_SERVICE" bundle exec rails db:migrate "$@"
+}
+
+
+ddata() {
+  dc run --rm "$RAILS_SERVICE" bundle exec rails data:migrate "$@"
+}
+
+dconsole() {
+  dc run --rm --service-ports "$RAILS_SERVICE" bundle exec rails console "$@"
+}
+
+dreset() {
+  dc run --rm "$RAILS_SERVICE" bundle exec rails db:reset "$@"
+}
+
+drun() {
+  local service="${1:-$RUN_SERVICE}"
+  shift || true
+  dc run --rm "$service" "$@"
+}
+
+gitea_add_remote() {
   REPO=$(basename $PWD)
   git remote add gitea https://git.invalid8.com/invalidusrname/${REPO}.git
   git push -u gitea master

@@ -80,7 +80,7 @@ alias tt="cd ~/dev/play/invalidusrname/ttrss"
 
 # work related
 alias debt="cd ~/dev/work/debtbook"
-alias debt-pull="git pull && dmigrate api"
+alias debt-pull="git pull && dinstall && dmigrate && ddata"
 
 alias ms="make start"
 alias assume=". assume"
