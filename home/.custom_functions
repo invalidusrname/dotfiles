@@ -254,7 +254,17 @@ function gitsearch() {
 
 function glab-issue-feature() {
   local BRANCH_LIMIT=120
-  local issue_num=$1
+  local input="$1"
+
+  local issue_num
+
+  if [[ "$input" =~ ^https?://gitlab\.com/.*-/issues/([0-9]+)(/|$|\?|#) ]]; then
+    issue_num="${BASH_REMATCH[1]}"
+  else
+    if [[ "$input" =~ ^[0-9]+$ ]]; then
+      issue_num="$input"
+    fi
+  fi
 
   if [ -z "$issue_num" ]; then
     echo "Usage: glab-issue-feature <issue_num>"
