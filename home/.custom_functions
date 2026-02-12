@@ -333,3 +333,38 @@ gitea_add_remote() {
   git push -u gitea master
 }
 
+git_chat_review() {
+  (
+    echo "### Last commit diff (git show --patch HEAD)"
+    git show --patch HEAD
+
+    echo -e "\n\n========================================\n## Full current versions of changed files\n"
+
+    git show --name-only HEAD | tail -n +2 | while read -r file; do
+      if [ -f "$file" ]; then
+        echo -e "### $file"
+
+        # Guess language for syntax highlighting
+        ext="${file##*.}"
+        lang=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+        case "$lang" in
+          js)     lang="javascript" ;;
+          jsx)    lang="jsx"        ;;
+          ts)     lang="typescript" ;;
+          tsx)    lang="tsx"        ;;
+          py)     lang="python"     ;;
+          md|markdown) lang="markdown" ;;
+          json)   lang="json"       ;;
+          *)      lang="text"       ;;  # fallback
+        esac
+
+        echo -e "\`\`\`$lang"
+        cat "$file"
+        echo -e "\`\`\`\n"
+      else
+        echo -e "### $file  (file not found or not readable)\n"
+      fi
+    done
+  )
+}
+
