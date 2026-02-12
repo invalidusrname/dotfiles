@@ -2,7 +2,7 @@ require 'irb/completion'
 require 'json'
 require 'rubygems'
 
-gems = %w[awesome_print niceql prettyprint]
+gems = %w[amazing_print niceql prettyprint]
 
 gems.each do |gem_name|
   require gem_name
