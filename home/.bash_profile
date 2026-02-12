@@ -33,8 +33,8 @@ fi
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-if command -v mise >/dev/null 2>&1; then
-  eval "$(mise activate bash)"
+if [ -f "$HOME/.local/bin/mise" ]; then
+  eval "$("$HOME/.local/bin/mise" activate bash)"
 fi
 
 if command -v direnv >/dev/null 2>&1; then
