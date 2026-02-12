@@ -10,3 +10,7 @@ pnpm = "latest"
 python = "3.13.0"
 ruby = "4.0.1"
 yarn = "4.12.0"
+
+gh = "latest"
+glab = "latest"
+
