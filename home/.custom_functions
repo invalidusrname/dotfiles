@@ -1,8 +1,3 @@
-# add key to remote server
-
-function authme {
-  ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_rsa.pub
-}
 
 if [ -r $HOME/.git-completion.sh ];
 then
@@ -13,6 +8,11 @@ if [ -r $HOME/.git-prompt.sh ];
 then
   source $HOME/.git-prompt.sh
 fi
+
+
+function authme {
+  ssh $1 'cat >>.ssh/authorized_keys' <~/.ssh/id_rsa.pub
+}
 
 function parse_git_branch {
   branch_prompt=$(__git_ps1)
@@ -292,11 +292,8 @@ function glab-issue-feature() {
 }
 
 
-: "${RAILS_SERVICE:=api}"
-: "${RUN_SERVICE:=api}"
-
 dc() {
-  docker compose "$@";
+  docker compose "$@"
 }
 
 dinstall() {
@@ -366,5 +363,13 @@ git_chat_review() {
       fi
     done
   )
+
+glab() {
+    if [ "$1" = "pr" ]; then
+        shift
+        command glab mr "$@"
+    else
+        command glab "$@"
+    fi
 }
 

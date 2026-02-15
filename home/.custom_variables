@@ -31,3 +31,6 @@ export CLOUDSDK_PYTHON=$HOME/.local/share/mise/shims/python
 AWS_DEFAULT_REGION=us-east-1
 AWS_REGION=us-east-1
 
+: "${RAILS_SERVICE:=api}"
+: "${RUN_SERVICE:=api}"
+

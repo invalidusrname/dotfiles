@@ -57,3 +57,5 @@
   path = ~/.gitconfig-debtbook
 [includeIf "gitdir:~/dev/play/"]
   path = ~/.gitconfig-personal
+[credential "https://gitlab.com"]
+	helper = !glab auth git-credential
