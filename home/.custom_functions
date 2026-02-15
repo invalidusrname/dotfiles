@@ -363,6 +363,7 @@ git_chat_review() {
       fi
     done
   )
+}
 
 glab() {
     if [ "$1" = "pr" ]; then
