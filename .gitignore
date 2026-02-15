@@ -4,6 +4,7 @@
 .svn
 config/database.yml
 docker-compose.overrides.yml
+home/.config/btop/btop.conf
 home/.config/configstore/nodemon.json
 home/.config/configstore/update-notifier-npm.json
 home/.config/gcli
