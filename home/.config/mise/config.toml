@@ -2,6 +2,9 @@
 experimental = true
 idiomatic_version_file_enable_tools = ["node", "ruby", "python"]
 
+[settings.aqua]
+github_attestations = false
+
 [tools]
 "npm:prettier" = "latest"
 "npm:oxlint" = "latest"
