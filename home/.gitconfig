@@ -46,8 +46,6 @@
   showSignature = true
 [mailmap]
   file = ~/.mailmap
-[pull]
-  rebase = true
 [push]
   autoSetupRemote = true
   default = simple
