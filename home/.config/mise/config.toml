@@ -6,16 +6,14 @@ idiomatic_version_file_enable_tools = ["node", "ruby", "python"]
 github_attestations = false
 
 [tools]
-"npm:prettier" = "latest"
-"npm:oxlint" = "latest"
-
-node = "24.12.0"
-pnpm = "latest"
 python = "3.13.0"
 ruby = "4.0.1"
-yarn = "4.12.0"
 
-
+"npm:oxlint" = "latest"
+"npm:prettier" = "latest"
 gh = "latest"
 glab = "latest"
+node = "24.12.0"
+pnpm = "latest"
+yarn = "4.12.0"
 
