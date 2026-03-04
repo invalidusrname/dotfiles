@@ -252,6 +252,46 @@ function gitsearch() {
     git grep "$1" $(git branch -a --format='%(refname:short)')
 }
 
+function co() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: co <pr/mr_number> [extra options...]"
+    echo "  (detects GitHub vs GitLab from origin remote and runs gh/glab checkout)"
+    return 1
+  fi
+
+  local num="$1"
+  shift
+
+  # Make sure we're actually in a git repo
+  if ! git rev-parse --git-dir >/dev/null 2>&1; then
+    echo "Error: Not inside a git repository."
+    return 1
+  fi
+
+  local remote_url
+  remote_url=$(git remote get-url origin 2>/dev/null || true)
+
+  if [ -z "$remote_url" ]; then
+    remote_url=$(git config --get-regexp '^remote\..*\.url' | head -n1 | awk '{print $2}')
+  fi
+
+  if [ -z "$remote_url" ]; then
+    echo "Error: No remote URL found (tried origin and any remote)."
+    return 1
+  fi
+
+  if [[ "$remote_url" == *github* ]]; then
+    gh pr checkout "$num" "$@"
+  elif [[ "$remote_url" == *gitlab* ]]; then
+    glab mr checkout "$num" "$@"
+  else
+    echo "Error: Could not detect GitHub or GitLab from remote URL:"
+    echo "   $remote_url"
+    echo "   (add a remote containing 'github' or 'gitlab' in the hostname)"
+    return 1
+  fi
+}
+
 function glab-issue-feature() {
   local BRANCH_LIMIT=120
   local input="$1"

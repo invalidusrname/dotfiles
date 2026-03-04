@@ -9,6 +9,7 @@ alias l="ls -CaGpltr"
 alias ls="ls -Gl"
 alias lusers="netstat -na | grep 548"
 alias myip='curl -s icanhazip.com'
+alias dl="cd $HOME/Downloads"
 
 # tmux
 alias tm='tmux -u -2'
@@ -82,6 +83,7 @@ alias tt="cd ~/dev/play/invalidusrname/ttrss"
 alias debt="cd ~/dev/work/debtbook"
 alias debt-pull="git pull && dinstall && dmigrate && ddata"
 alias ssh_eqa='RELEASE_TERMINAL_SOCKETIO=true release instances terminal api --environment $(release environments list | grep $(git branch --show-current) | awk '"'"'{print $1}'"'"')'
+alias glabme='glab mr list --author=matt.mcmahand-db'
 
 alias ms="make start"
 alias assume=". assume"
