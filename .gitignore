@@ -14,6 +14,7 @@ home/.config/iterm2/AppSupport
 home/.config/joplin-desktop/*
 home/.config/nvim.bak2/*
 home/.config/nvim/plugin/packer_compiled.lua
+home/.config/opencode
 home/.config/yarn
 home/.ssh
 log/*.log
