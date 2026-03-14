@@ -42,5 +42,6 @@ if command -v direnv >/dev/null 2>&1; then
 fi
 
 
-export PATH="$PATH:/Users/matt/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
+export PATH=$HOME/.opencode/bin:$PATH
 
