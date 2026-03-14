@@ -15,5 +15,6 @@ home/.config/joplin-desktop/*
 home/.config/nvim.bak2/*
 home/.config/nvim/plugin/packer_compiled.lua
 home/.config/yarn
+home/.ssh
 log/*.log
 tmp/*
